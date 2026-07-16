@@ -1,3 +1,5 @@
 name = "linksmile"
 compatibility_date = "2026-07-16"
-pages_build_output_dir = "web/project"
+
+[assets]
+directory = "web/project"
