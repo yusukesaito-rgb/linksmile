@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#EDEAE1;font-family:'Zen Kaku Gothic New',sans-serif;}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#2B2820;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 14px/1.2 'Zen Kaku Gothic New',sans-serif;color:#2B2820}
+.dv-opts{display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#2B2820;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 'Zen Kaku Gothic New',sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:6px;box-shadow:0 10px 34px -14px rgba(0,0,0,.3);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2FAE68;color:#fff}
+.dv-next{margin:22px 0 0;font:12.5px/1.6 'Zen Kaku Gothic New',sans-serif;color:rgba(0,0,0,.55)}
+image-slot{display:block !important;width:100% !important;height:100% !important;}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">チラシデザイン案 ／ A4・明るく元気なトーン（1a〜1c）</span></div>
+  <div class="dv-opts">
+
+    <!-- ============ 1A 写真ヒーロー型 ============ -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>写真ヒーロー型 ─ 大きな1枚で惹きつける</div>
+      <div class="dv-card" style="width:794px;">
+        <div style="width:794px;min-height:1123px;background:#FBF8F0;position:relative;font-family:'Zen Kaku Gothic New',sans-serif;color:#2B2820;">
+
+          <!-- hero photo -->
+          <div style="position:relative;width:100%;height:460px;overflow:hidden;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1a-hero" style="width:100%;height:100%;" shape="rect" src="assets/origin-studio.png" credit="参考イメージ／当日はこの構図で撮影" placeholder="8/16撮影：パーソナル指導シーン（1対1・トレーナーが横で支える構図）" hint-size="794px,460px"></x-import>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,40,32,0) 40%,rgba(43,40,32,.78) 100%);pointer-events:none;"></div>
+            <div style="position:absolute;left:36px;top:28px;display:flex;align-items:center;gap:8px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:#2FAE68;"></span>
+              <span style="font-family:'Jost';font-weight:400;font-size:20px;letter-spacing:.1em;color:#fff;">Link & Smile</span>
+            </div>
+            <div style="position:absolute;left:36px;bottom:26px;right:36px;">
+              <div style="display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#2B2820;background:#FFB648;border-radius:999px;padding:6px 16px;margin-bottom:14px;">あざみ野 ・ 完全個室バランスボールスタジオ</div>
+              <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:42px;font-weight:900;line-height:1.35;color:#fff;margin:0;letter-spacing:.02em;text-shadow:0 2px 20px rgba(0,0,0,.3);">はじめての人こそ、<br>続けられる場所。</h1>
+            </div>
+          </div>
+
+          <!-- concern strip -->
+          <div style="background:#FF7A3D;padding:18px 36px;display:flex;align-items:center;justify-content:space-around;gap:10px;">
+            <span style="font-size:14.5px;font-weight:700;color:#fff;">姿勢の崩れ</span>
+            <span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);"></span>
+            <span style="font-size:14.5px;font-weight:700;color:#fff;">肩こり</span>
+            <span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);"></span>
+            <span style="font-size:14.5px;font-weight:700;color:#fff;">腰痛</span>
+            <span style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.6);"></span>
+            <span style="font-size:14.5px;font-weight:700;color:#fff;">メンタル不調</span>
+            <span style="font-size:12.5px;font-weight:500;color:rgba(255,255,255,.92);margin-left:6px;">その不調、体幹の弱さかもしれません</span>
+          </div>
+
+          <!-- stats -->
+          <div style="display:flex;padding:30px 36px 10px;gap:24px;">
+            <div style="flex:1;text-align:center;background:#EAF7EE;border-radius:16px;padding:18px 10px;">
+              <div style="font-family:'Jost';font-weight:500;font-size:40px;color:#2FAE68;line-height:1;">2,400<span style="font-size:16px;">回+</span></div>
+              <div style="font-size:12.5px;color:#3D372C;font-weight:700;margin-top:6px;">延べ指導回数</div>
+            </div>
+            <div style="flex:1;text-align:center;background:#EAF7EE;border-radius:16px;padding:18px 10px;">
+              <div style="font-family:'Jost';font-weight:500;font-size:40px;color:#2FAE68;line-height:1;">280<span style="font-size:16px;">名+</span></div>
+              <div style="font-size:12.5px;color:#3D372C;font-weight:700;margin-top:6px;">ご利用会員（丸2年）</div>
+            </div>
+            <div style="flex:1.3;background:#FFF4E9;border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:12px;font-weight:700;color:#FF7A3D;letter-spacing:.05em;margin-bottom:4px;">米国スポーツ医学会（ACSM）</div>
+              <div style="font-size:12.5px;line-height:1.7;color:#544c41;">大切なのは重さより「続けられること」。バランスボールでも十分に変われます。</div>
+            </div>
+          </div>
+
+          <!-- before / after -->
+          <div style="padding:22px 36px 0;">
+            <div style="font-size:14px;font-weight:700;color:#3D372C;margin-bottom:12px;">骨盤を整えるだけで、ここまで変わった。<span style="font-weight:400;color:#6E665A;font-size:12px;">（約2ヶ月・体重は変えず）</span></div>
+            <div style="display:flex;gap:14px;">
+              <div style="flex:1;position:relative;border-radius:14px;overflow:hidden;height:220px;background:url(assets/ba-before-crop-noface.jpg) center top/cover no-repeat,#ECEAE4;">
+                <div style="position:absolute;left:10px;top:10px;font-family:'Jost';font-size:10.5px;letter-spacing:.1em;color:#fff;background:rgba(43,40,32,.6);padding:3px 10px;border-radius:999px;">BEFORE</div>
+              </div>
+              <div style="flex:1;position:relative;border-radius:14px;overflow:hidden;height:220px;background:url(assets/ba-after-crop-noface.jpg) center top/cover no-repeat,#ECEAE4;">
+                <div style="position:absolute;left:10px;top:10px;font-family:'Jost';font-size:10.5px;letter-spacing:.1em;color:#2B2820;background:rgba(255,255,255,.92);padding:3px 10px;border-radius:999px;">AFTER</div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;height:220px;">
+                <div style="flex:1;position:relative;border-radius:14px;overflow:hidden;">
+                  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1a-semi" style="width:100%;height:100%;" shape="rounded" radius="14" src="assets/gal-2.png" credit="参考イメージ" placeholder="8/16撮影：グループレッスンの様子" hint-size="180px,140px"></x-import>
+                </div>
+                <div style="font-size:11.5px;line-height:1.6;color:#544c41;">パーソナルだけでなく、<strong style="color:#3D372C;">グループレッスン</strong>も開催。仲間と楽しく続けられます。</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom CTA -->
+          <div style="width:100%;margin-top:24px;background:#2B2820;padding:24px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+            <div>
+              <div style="font-size:12px;color:#A8B57E;font-weight:700;letter-spacing:.06em;margin-bottom:6px;">パーソナル ＆ グループレッスン、両対応</div>
+              <div style="font-size:22px;font-weight:700;color:#fff;font-family:'Zen Maru Gothic',sans-serif;letter-spacing:.02em;">まずは、QRからチェック。</div>
+              <div style="font-size:11.5px;color:#cfc7ba;margin-top:6px;">あざみ野・完全予約制 ／ 料金・コースの詳細は公式サイトでご案内</div>
+            </div>
+            <div style="display:flex;gap:14px;">
+              <div style="text-align:center;">
+                <div style="width:88px;height:88px;background:#fff;border-radius:10px;padding:8px;position:relative;">
+                  <div style="position:absolute;left:8px;top:8px;width:20px;height:20px;border:4px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;right:8px;top:8px;width:20px;height:20px;border:4px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;left:8px;bottom:8px;width:20px;height:20px;border:4px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;right:16px;bottom:16px;width:6px;height:6px;background:#1a1a1a;"></div>
+                  <div style="position:absolute;right:28px;bottom:22px;width:6px;height:6px;background:#1a1a1a;"></div>
+                  <div style="position:absolute;right:16px;bottom:30px;width:6px;height:6px;background:#1a1a1a;"></div>
+                </div>
+                <div style="font-size:10.5px;color:#fff;margin-top:6px;font-weight:700;">HPで予約</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="width:88px;height:88px;background:#fff;border-radius:10px;padding:8px;position:relative;">
+                  <div style="position:absolute;left:8px;top:8px;width:20px;height:20px;border:4px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;right:8px;top:8px;width:20px;height:20px;border:4px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;left:8px;bottom:8px;width:20px;height:20px;border:4px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;right:16px;bottom:16px;width:6px;height:6px;background:#06C755;"></div>
+                  <div style="position:absolute;right:28px;bottom:22px;width:6px;height:6px;background:#06C755;"></div>
+                  <div style="position:absolute;right:16px;bottom:30px;width:6px;height:6px;background:#06C755;"></div>
+                </div>
+                <div style="font-size:10.5px;color:#fff;margin-top:6px;font-weight:700;">公式LINE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1B 分割グリッド型 ============ -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>分割グリッド型 ─ 情報をしっかり伝えるカタログ型</div>
+      <div class="dv-card" style="width:794px;">
+        <div style="width:794px;min-height:1123px;background:#FBF8F0;position:relative;font-family:'Zen Kaku Gothic New',sans-serif;color:#2B2820;">
+
+          <!-- top band -->
+          <div style="background:#2FAE68;padding:30px 36px;display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#fff;"></span>
+                <span style="font-family:'Jost';font-weight:400;font-size:18px;letter-spacing:.1em;color:#fff;">Link & Smile</span>
+              </div>
+              <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:34px;font-weight:900;line-height:1.4;color:#fff;margin:0;letter-spacing:.02em;">はじめての人こそ、<br>続けられる場所。</h1>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:12px;color:#EAF7EE;font-weight:700;">あざみ野・完全個室</div>
+              <div style="font-size:12px;color:#EAF7EE;font-weight:700;">バランスボールスタジオ</div>
+            </div>
+          </div>
+
+          <!-- 2 col: trainer + concerns -->
+          <div style="display:flex;gap:20px;padding:26px 36px 0;">
+            <div style="width:220px;flex-shrink:0;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1b-trainer" style="width:220px;height:270px;" shape="rounded" radius="16" src="assets/origin-studio.png" credit="参考イメージ（単体ポーズは要別撮影）" placeholder="8/16撮影：トレーナー単体ポートレート" hint-size="220px,270px"></x-import>
+              <div style="margin-top:10px;font-size:12.5px;font-weight:700;color:#3D372C;">トレーナー　伊能 竜之介</div>
+              <div style="font-size:11px;color:#6E665A;line-height:1.7;margin-top:4px;">約30年のサッカー競技歴／体幹指導専門</div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:15px;font-weight:700;color:#3D372C;margin-bottom:12px;">こんなお悩み、ありませんか？</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:11px 14px;"><span style="color:#FF7A3D;font-weight:700;">・</span><span style="font-size:13.5px;color:#3D372C;font-weight:500;">姿勢の崩れ・猫背</span></div>
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:11px 14px;"><span style="color:#FF7A3D;font-weight:700;">・</span><span style="font-size:13.5px;color:#3D372C;font-weight:500;">慢性的な肩こり・首こり</span></div>
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:11px 14px;"><span style="color:#FF7A3D;font-weight:700;">・</span><span style="font-size:13.5px;color:#3D372C;font-weight:500;">腰痛・反り腰</span></div>
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:11px 14px;"><span style="color:#FF7A3D;font-weight:700;">・</span><span style="font-size:13.5px;color:#3D372C;font-weight:500;">気分の落ち込み・メンタル不調</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- photo strip: personal + semi -->
+          <div style="display:flex;gap:14px;padding:20px 36px 0;">
+            <div style="flex:1;position:relative;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1b-personal" style="width:100%;height:170px;" shape="rounded" radius="14" src="assets/origin-studio.png" credit="参考イメージ" placeholder="8/16撮影：パーソナル指導シーン（1対1）" hint-size="340px,170px"></x-import>
+              <div style="position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;color:#fff;background:rgba(43,40,32,.55);padding:4px 12px;border-radius:999px;">PERSONAL</div>
+            </div>
+            <div style="flex:1;position:relative;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1b-semi" style="width:100%;height:170px;" shape="rounded" radius="14" src="assets/gal-2.png" credit="参考イメージ" placeholder="8/16撮影：グループレッスンの様子" hint-size="340px,170px"></x-import>
+              <div style="position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;color:#fff;background:rgba(43,40,32,.55);padding:4px 12px;border-radius:999px;">GROUP LESSON</div>
+            </div>
+          </div>
+          <div style="padding:10px 36px 0;font-size:11.5px;color:#6E665A;line-height:1.7;">「ひとりで通うのは少し不安」という方も、お友達・ご夫婦と一緒に。個別指導の質はそのままに、仲間となら続けやすい。</div>
+
+          <!-- stats + before/after + science -->
+          <div style="display:flex;gap:16px;padding:22px 36px 0;">
+            <div style="width:150px;display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#EAF7EE;border-radius:14px;padding:14px 8px;text-align:center;">
+                <div style="font-family:'Jost';font-weight:500;font-size:26px;color:#2FAE68;line-height:1;">2,400<span style="font-size:12px;">回+</span></div>
+                <div style="font-size:10.5px;color:#3D372C;font-weight:700;margin-top:4px;">延べ指導回数</div>
+              </div>
+              <div style="background:#EAF7EE;border-radius:14px;padding:14px 8px;text-align:center;">
+                <div style="font-family:'Jost';font-weight:500;font-size:26px;color:#2FAE68;line-height:1;">280<span style="font-size:12px;">名+</span></div>
+                <div style="font-size:10.5px;color:#3D372C;font-weight:700;margin-top:4px;">ご利用会員</div>
+              </div>
+            </div>
+            <div style="flex:1;display:flex;gap:10px;">
+              <div style="flex:1;position:relative;border-radius:12px;overflow:hidden;height:170px;background:url(assets/ba-before-crop-noface.jpg) center top/cover no-repeat,#ECEAE4;">
+                <div style="position:absolute;left:8px;top:8px;font-family:'Jost';font-size:9.5px;letter-spacing:.08em;color:#fff;background:rgba(43,40,32,.6);padding:2px 8px;border-radius:999px;">BEFORE</div>
+              </div>
+              <div style="flex:1;position:relative;border-radius:12px;overflow:hidden;height:170px;background:url(assets/ba-after-crop-noface.jpg) center top/cover no-repeat,#ECEAE4;">
+                <div style="position:absolute;left:8px;top:8px;font-family:'Jost';font-size:9.5px;letter-spacing:.08em;color:#2B2820;background:rgba(255,255,255,.92);padding:2px 8px;border-radius:999px;">AFTER</div>
+              </div>
+            </div>
+            <div style="width:150px;background:#FFF4E9;border-radius:14px;padding:14px 14px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:10.5px;font-weight:700;color:#FF7A3D;letter-spacing:.02em;margin-bottom:4px;">ACSM（米国スポーツ医学会）</div>
+              <div style="font-size:10.5px;line-height:1.65;color:#544c41;">重さより「続けられること」が結果を生む。</div>
+            </div>
+          </div>
+
+          <!-- bottom CTA -->
+          <div style="width:100%;margin-top:24px;background:#2B2820;padding:22px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+            <div>
+              <div style="font-size:11.5px;color:#FFB648;font-weight:700;letter-spacing:.06em;margin-bottom:6px;">パーソナル ＆ グループレッスン、両対応</div>
+              <div style="font-size:19px;font-weight:700;color:#fff;font-family:'Zen Maru Gothic',sans-serif;letter-spacing:.02em;">まずは、QRからチェック。</div>
+              <div style="font-size:11px;color:#cfc7ba;margin-top:5px;">あざみ野・完全予約制／料金は公式サイトでご案内</div>
+            </div>
+            <div style="display:flex;gap:12px;">
+              <div style="text-align:center;">
+                <div style="width:78px;height:78px;background:#fff;border-radius:10px;padding:7px;position:relative;">
+                  <div style="position:absolute;left:7px;top:7px;width:18px;height:18px;border:3.5px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;right:7px;top:7px;width:18px;height:18px;border:3.5px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;left:7px;bottom:7px;width:18px;height:18px;border:3.5px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;right:14px;bottom:14px;width:5px;height:5px;background:#1a1a1a;"></div>
+                  <div style="position:absolute;right:24px;bottom:20px;width:5px;height:5px;background:#1a1a1a;"></div>
+                </div>
+                <div style="font-size:9.5px;color:#fff;margin-top:5px;font-weight:700;">HPで予約</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="width:78px;height:78px;background:#fff;border-radius:10px;padding:7px;position:relative;">
+                  <div style="position:absolute;left:7px;top:7px;width:18px;height:18px;border:3.5px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;right:7px;top:7px;width:18px;height:18px;border:3.5px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;left:7px;bottom:7px;width:18px;height:18px;border:3.5px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;right:14px;bottom:14px;width:5px;height:5px;background:#06C755;"></div>
+                  <div style="position:absolute;right:24px;bottom:20px;width:5px;height:5px;background:#06C755;"></div>
+                </div>
+                <div style="font-size:9.5px;color:#fff;margin-top:5px;font-weight:700;">公式LINE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1C ストーリー導線型 ============ -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>ストーリー導線型 ─ サイトと同じ流れで納得させる</div>
+      <div class="dv-card" style="width:794px;">
+        <div style="width:794px;min-height:1123px;background:#FBF8F0;position:relative;font-family:'Zen Kaku Gothic New',sans-serif;color:#2B2820;">
+
+          <!-- trainer hero -->
+          <div style="position:relative;width:100%;height:260px;overflow:hidden;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1c-hero" style="width:100%;height:100%;" shape="rect" src="assets/origin-studio.png" credit="参考イメージ（単体ポーズは要別撮影）" placeholder="8/16撮影：トレーナー単体ポートレート（明るい表情）" hint-size="794px,260px"></x-import>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,40,32,0) 50%,rgba(43,40,32,.72) 100%);pointer-events:none;"></div>
+            <div style="position:absolute;left:36px;top:24px;display:flex;align-items:center;gap:8px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:#FFB648;"></span>
+              <span style="font-family:'Jost';font-weight:400;font-size:18px;letter-spacing:.1em;color:#fff;">Link & Smile</span>
+            </div>
+            <div style="position:absolute;left:36px;bottom:20px;">
+              <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:32px;font-weight:900;line-height:1.4;color:#fff;margin:0;letter-spacing:.02em;">はじめての人こそ、続けられる場所。</h1>
+              <div style="font-size:12.5px;color:#EAF7EE;margin-top:6px;">あざみ野・完全個室バランスボールスタジオ</div>
+            </div>
+          </div>
+
+          <!-- STEP 1 concerns -->
+          <div style="padding:22px 36px 0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+              <span style="font-family:'Jost';font-size:12px;font-weight:600;color:#fff;background:#FF7A3D;border-radius:999px;padding:5px 14px;letter-spacing:.05em;">STEP 1</span>
+              <span style="font-size:15px;font-weight:700;color:#3D372C;">こんなお悩み、ありませんか？</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+              <div style="background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:14px 10px;text-align:center;"><div style="font-size:12.5px;font-weight:700;color:#3D372C;">姿勢の崩れ</div></div>
+              <div style="background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:14px 10px;text-align:center;"><div style="font-size:12.5px;font-weight:700;color:#3D372C;">肩こり</div></div>
+              <div style="background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:14px 10px;text-align:center;"><div style="font-size:12.5px;font-weight:700;color:#3D372C;">腰痛</div></div>
+              <div style="background:#fff;border:1px solid #ECE3D2;border-radius:12px;padding:14px 10px;text-align:center;"><div style="font-size:12.5px;font-weight:700;color:#3D372C;">メンタル不調</div></div>
+            </div>
+          </div>
+
+          <!-- STEP 2 stats -->
+          <div style="padding:24px 36px 0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+              <span style="font-family:'Jost';font-size:12px;font-weight:600;color:#fff;background:#2FAE68;border-radius:999px;padding:5px 14px;letter-spacing:.05em;">STEP 2</span>
+              <span style="font-size:15px;font-weight:700;color:#3D372C;">あざみ野で積み重ねた実績</span>
+            </div>
+            <div style="display:flex;gap:16px;">
+              <div style="flex:1;background:#EAF7EE;border-radius:14px;padding:18px;text-align:center;">
+                <div style="font-family:'Jost';font-weight:500;font-size:34px;color:#2FAE68;line-height:1;">2,400<span style="font-size:14px;">回+</span></div>
+                <div style="font-size:11.5px;color:#3D372C;font-weight:700;margin-top:6px;">延べ指導回数</div>
+              </div>
+              <div style="flex:1;background:#EAF7EE;border-radius:14px;padding:18px;text-align:center;">
+                <div style="font-family:'Jost';font-weight:500;font-size:34px;color:#2FAE68;line-height:1;">280<span style="font-size:14px;">名+</span></div>
+                <div style="font-size:11.5px;color:#3D372C;font-weight:700;margin-top:6px;">ご利用会員（丸2年）</div>
+              </div>
+              <div style="flex:1.4;background:#FFF4E9;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:10.5px;font-weight:700;color:#FF7A3D;margin-bottom:4px;">ACSM（米国スポーツ医学会）</div>
+                <div style="font-size:11px;line-height:1.65;color:#544c41;">重さより「続けられること」。だから運動が苦手な方にも。</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3 before/after -->
+          <div style="padding:24px 36px 0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+              <span style="font-family:'Jost';font-size:12px;font-weight:600;color:#fff;background:#1FA79A;border-radius:999px;padding:5px 14px;letter-spacing:.05em;">STEP 3</span>
+              <span style="font-size:15px;font-weight:700;color:#3D372C;">変化の実例（約2ヶ月・体重は変えず）</span>
+            </div>
+            <div style="display:flex;gap:14px;">
+              <div style="flex:1;position:relative;border-radius:12px;overflow:hidden;height:200px;background:url(assets/ba-before-crop-noface.jpg) center top/cover no-repeat,#ECEAE4;">
+                <div style="position:absolute;left:9px;top:9px;font-family:'Jost';font-size:10px;letter-spacing:.08em;color:#fff;background:rgba(43,40,32,.6);padding:3px 9px;border-radius:999px;">BEFORE</div>
+              </div>
+              <div style="flex:1;position:relative;border-radius:12px;overflow:hidden;height:200px;background:url(assets/ba-after-crop-noface.jpg) center top/cover no-repeat,#ECEAE4;">
+                <div style="position:absolute;left:9px;top:9px;font-family:'Jost';font-size:10px;letter-spacing:.08em;color:#2B2820;background:rgba(255,255,255,.92);padding:3px 9px;border-radius:999px;">AFTER</div>
+              </div>
+              <div style="flex:1;display:flex;align-items:center;">
+                <div style="font-size:12px;line-height:1.9;color:#544c41;">骨盤を整えただけで、下腹部の見た目がここまで変化。腰痛・気分の安定も実感。</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4 semi-personal -->
+          <div style="padding:24px 36px 0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+              <span style="font-family:'Jost';font-size:12px;font-weight:600;color:#fff;background:#FFB648;border-radius:999px;padding:5px 14px;letter-spacing:.05em;color:#2B2820;">STEP 4</span>
+              <span style="font-size:15px;font-weight:700;color:#3D372C;">ひとりじゃない、という安心</span>
+            </div>
+            <div style="display:flex;gap:16px;align-items:center;">
+              <div style="width:190px;flex-shrink:0;">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fly1c-semi" style="width:190px;height:130px;" shape="rounded" radius="14" src="assets/gal-2.png" credit="参考イメージ" placeholder="8/16撮影：グループレッスンの様子" hint-size="190px,130px"></x-import>
+              </div>
+              <div style="font-size:12.5px;line-height:1.9;color:#544c41;">パーソナルだけでなく、<strong style="color:#3D372C;">グループレッスン</strong>も開催。仲間と一緒に楽しく続けられます。</div>
+            </div>
+          </div>
+
+          <!-- bottom CTA -->
+          <div style="width:100%;margin-top:24px;background:#2B2820;padding:22px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+            <div>
+              <div style="font-size:11.5px;color:#FFB648;font-weight:700;letter-spacing:.06em;margin-bottom:6px;">パーソナル ＆ グループレッスン、両対応</div>
+              <div style="font-size:19px;font-weight:700;color:#fff;font-family:'Zen Maru Gothic',sans-serif;letter-spacing:.02em;">まずは、QRからチェック。</div>
+              <div style="font-size:11px;color:#cfc7ba;margin-top:5px;">あざみ野・完全予約制／料金は公式サイトでご案内</div>
+            </div>
+            <div style="display:flex;gap:12px;">
+              <div style="text-align:center;">
+                <div style="width:78px;height:78px;background:#fff;border-radius:10px;padding:7px;position:relative;">
+                  <div style="position:absolute;left:7px;top:7px;width:18px;height:18px;border:3.5px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;right:7px;top:7px;width:18px;height:18px;border:3.5px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;left:7px;bottom:7px;width:18px;height:18px;border:3.5px solid #1a1a1a;border-radius:3px;"></div>
+                  <div style="position:absolute;right:14px;bottom:14px;width:5px;height:5px;background:#1a1a1a;"></div>
+                  <div style="position:absolute;right:24px;bottom:20px;width:5px;height:5px;background:#1a1a1a;"></div>
+                </div>
+                <div style="font-size:9.5px;color:#fff;margin-top:5px;font-weight:700;">HPで予約</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="width:78px;height:78px;background:#fff;border-radius:10px;padding:7px;position:relative;">
+                  <div style="position:absolute;left:7px;top:7px;width:18px;height:18px;border:3.5px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;right:7px;top:7px;width:18px;height:18px;border:3.5px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;left:7px;bottom:7px;width:18px;height:18px;border:3.5px solid #06C755;border-radius:3px;"></div>
+                  <div style="position:absolute;right:14px;bottom:14px;width:5px;height:5px;background:#06C755;"></div>
+                  <div style="position:absolute;right:24px;bottom:20px;width:5px;height:5px;background:#06C755;"></div>
+                </div>
+                <div style="font-size:9.5px;color:#fff;margin-top:5px;font-weight:700;">公式LINE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">試してみる：「<a class="dv-oid" href="#1a">1a</a>の写真ヒーローに<a class="dv-oid" href="#1b">1b</a>の医学的根拠ボックスを追加」 ・ 「<a class="dv-oid" href="#1c">1c</a>のQRを大きく」 ・ 「新しい方向性を見たい」</p>
+</section>
+
+</x-dc>
+</body>
+</html>
