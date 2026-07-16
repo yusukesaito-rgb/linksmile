@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+a{color:#C77A3E;}
+a:hover{color:#E8935C;}
+</style>
+</helmet>
+<div style="font-family:'Zen Kaku Gothic New',sans-serif;background:#FAF6F0;color:#3D372C;min-height:100vh;line-height:1.9;padding-bottom:90px;">
+  <header style="padding:26px 44px;border-bottom:1px solid #FFE8D6;background:#fff;">
+    <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;gap:10px;">
+      <svg width="20" height="18" viewBox="0 0 84 74"><path d="M42 66 C42 48 16 48 16 30 C16 18 34 18 42 32" fill="none" stroke="#FFB789" stroke-width="7" stroke-linecap="round"></path><path d="M42 66 C42 48 68 48 68 30 C68 18 50 18 42 32" fill="none" stroke="#C7EB63" stroke-width="7" stroke-linecap="round"></path><circle cx="24" cy="40" r="8" fill="#FFB789"></circle><circle cx="60" cy="40" r="8" fill="#C7EB63"></circle></svg>
+      <span style="font-family:'Jost',sans-serif;font-weight:300;font-size:20px;letter-spacing:.12em;">Link & Smile</span>
+      <span style="font-size:12px;color:#9a9082;margin-left:10px;">7/16 撮影構成案（HP・チラシ用）</span>
+    </div>
+  </header>
+
+  <div style="max-width:960px;margin:0 auto;padding:56px 44px 0;">
+    <div style="font-family:'Jost';font-size:12px;letter-spacing:.3em;color:#FFB789;margin-bottom:14px;">SHOOTING PLAN — 2026.7.16</div>
+    <h1 style="font-size:30px;font-weight:700;letter-spacing:.04em;margin:0 0 10px;">撮影カットリスト &amp; 指示書</h1>
+    <p style="font-size:14.5px;color:#6E665A;margin:0 0 36px;max-width:720px;">HPの各セクション・チラシに「どの写真がどこに入るか」を前提に組んだリストです。当日はこの順で撮ると移動・着替えが最小になります。<strong style="color:#3D372C;font-weight:500;">全カット共通：自然光＋白壁側、笑顔は「会話中の自然な笑い」を狙う（ポーズ笑顔はNG）。</strong></p>
+
+    <div style="background:#fff;border:1px solid #FFE8D6;border-radius:18px;padding:24px 28px;margin-bottom:36px;display:flex;gap:28px;flex-wrap:wrap;">
+      <div style="font-size:13.5px;color:#544c41;"><strong style="color:#C77A3E;font-weight:500;">📷 写真：</strong>計 12〜15カット</div>
+      <div style="font-size:13.5px;color:#544c41;"><strong style="color:#C77A3E;font-weight:500;">🎬 動画：</strong>計 3本（各10〜20秒・横位置）</div>
+      <div style="font-size:13.5px;color:#544c41;"><strong style="color:#C77A3E;font-weight:500;">👥 出演：</strong>トレーナー＋クライアント役2名（女性）＋グループ用は既存写真を活用</div>
+      <div style="font-size:13.5px;color:#544c41;"><strong style="color:#C77A3E;font-weight:500;">✍️ 許可：</strong>グループレッスン写真は使用予定4〜6枚分の掲載許可を事前取得</div>
+    </div>
+
+    <sc-for list="{{ shots }}" as="s" hint-placeholder-count="8">
+      <div style="background:#fff;border:1px solid #FFE8D6;border-radius:20px;padding:30px 32px;margin-bottom:22px;">
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px;">
+          <span style="font-family:'Jost';font-size:13px;letter-spacing:.1em;color:#fff;background:#FFB789;border-radius:999px;padding:4px 14px;">{{ s.no }}</span>
+          <h2 style="font-size:19px;font-weight:700;letter-spacing:.02em;margin:0;">{{ s.section }}</h2>
+          <span style="font-size:12px;color:#9a9082;">{{ s.usage }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-top:14px;">
+          <div>
+            <div style="font-size:12.5px;font-weight:500;color:#C77A3E;letter-spacing:.05em;margin-bottom:6px;">必要カット</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <sc-for list="{{ s.cuts }}" as="c" hint-placeholder-count="2">
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.8;color:#544c41;"><span style="color:#FFB789;flex-shrink:0;">✓</span>{{ c }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12.5px;font-weight:500;color:#6F8F1E;letter-spacing:.05em;margin-bottom:6px;">画角・ポージングのアドバイス</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <sc-for list="{{ s.tips }}" as="t" hint-placeholder-count="2">
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.8;color:#544c41;"><span style="color:#C7EB63;flex-shrink:0;">●</span>{{ t }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ s.hasImages }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:18px;padding-top:16px;border-top:1px dashed #FFE8D6;">
+            <div style="font-size:12.5px;font-weight:500;color:#9a9082;letter-spacing:.05em;margin-bottom:8px;">参考イメージ（構図・雰囲気のたたき台）</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <sc-for list="{{ s.images }}" as="img" hint-placeholder-count="2">
+                <img src="{{ img }}" style="width:150px;height:110px;object-fit:cover;border-radius:10px;border:1px solid #FFE8D6;" />
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+
+    <div style="background:#2B2820;border-radius:20px;padding:30px 34px;margin-top:34px;">
+      <div style="font-size:13px;letter-spacing:.1em;color:#C7EB63;margin-bottom:12px;font-weight:500;">当日の進行メモ</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
+          <div style="display:flex;gap:10px;font-size:13.5px;line-height:1.9;color:#E7E3D9;"><span style="color:#FFB789;flex-shrink:0;">・</span>{{ n }}</div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;padding-top:26px;border-top:1px solid #FFE8D6;">
+      <a href="./Link & Smile LP.dc.html" style="font-size:13.5px;text-decoration:none;">← ホームページを見る（写真の入る位置を確認）</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      shots: [
+        { no: '01', section: 'ファーストビュー（最重要）', usage: 'HP冒頭の全画面動画＋静止画／チラシ表面メイン',
+          cuts: [
+            '🎬 動画A：パーソナル指導シーン（10〜20秒・横位置）',
+            '🎬 動画B：セミパーソナル2名のシーン（10〜20秒・横位置）',
+            '📷 予備静止画：同シーンの横位置ワイド 2〜3枚',
+          ],
+          tips: [
+            '画面の上に大きなキャッチコピー（白文字）が載るため、上1/3は「余白（壁・空間）」を残す構図で',
+            '動きは「ボールに座って揺れる→トレーナーが姿勢を直す」の流れが最も伝わる',
+            'カメラ目線なし。会話しながらの自然な笑顔を横から',
+          ],
+          hasImages: true,
+          images: ['./shoot-refs/cut-04.png', './shoot-refs/cut-11.png'] },
+        { no: '02', section: 'パーソナル指導（1対1）', usage: 'コース紹介／メソッド／チラシ',
+          cuts: [
+            '📷 横位置16:10：トレーナーがクライアントの骨盤・背中に軽く手を添えて確認している場面',
+            '📷 縦位置4:5：同シーンの寄り（手元と表情が両方入る）',
+          ],
+          tips: [
+            '「動きを見てもらえる」が差別化の核。トレーナーの視線がクライアントの体に向いているカットを',
+            '補助の手は添えるだけ（強く掴まない）。清潔感・安心感が出る',
+          ],
+          hasImages: true,
+          images: ['./shoot-refs/cut-06.png', './shoot-refs/cut-07.png'] },
+        { no: '03', section: 'セミパーソナル（2名）', usage: 'コース紹介／「一人でも申込OK」の安心感訴求',
+          cuts: [
+            '📷 横位置16:10：クライアント2名が並んでボールに座り、トレーナーが中央奥で指導',
+            '📷 笑い合っている瞬間のスナップ 1〜2枚',
+          ],
+          tips: [
+            '2名の距離は少し空ける（初対面同士でも大丈夫、が伝わる距離感）',
+            '2人が同じ動きをしていると「一緒に受けられる」が一目で分かる',
+          ] },
+        { no: '04', section: 'バランスボール・メソッドの寄り', usage: '「なぜインナーマッスルか」セクション／科学的説明の説得力',
+          cuts: [
+            '📷 横から：ボールに座った姿勢の全身（骨盤〜背骨のラインが見える）',
+            '📷 接写：ボールに置いた手・体幹を支える足元など質感カット 2枚',
+          ],
+          tips: [
+            '横からのカットは背筋が伸びた「正しい姿勢」のお手本として使うため、座り姿勢を丁寧に作り込む',
+            '接写は明るめ・浅い被写界深度（背景ボケ）だと上質感が出る',
+          ],
+          hasImages: true,
+          images: ['./shoot-refs/cut-04.png', './shoot-refs/cut-11.png'] },
+        { no: '05', section: 'トレーナー・ポートレート', usage: 'プロフィール／チラシ／Instagram',
+          cuts: [
+            '📷 縦位置3:4：上半身ポートレート（自然な笑顔・カメラ目線）',
+            '📷 ボールを持った立ち姿・全身 1枚',
+          ],
+          tips: [
+            '腕組みは避け、ボールを軽く抱えるか手を自然に。威圧感より「話しかけやすさ」',
+            '背景はスタジオの白壁＋木の家具が少し写る程度に',
+          ],
+          hasImages: true,
+          images: ['./shoot-refs/cut-03.png', './shoot-refs/cut-10.png'] },
+        { no: '06', section: 'スタジオ内観・空間', usage: 'ストーリー／「完全個室」の訴求／予約セクション背景',
+          cuts: [
+            '📷 縦位置4:5：入口側からの内観（看板・ロゴ入り）',
+            '📷 小物の接写：アロマ・タオル・ボールの静物 1〜2枚',
+          ],
+          tips: [
+            '📷 昼の自然光の時間帯に。照明は電球色のままでOK（温かみ）',
+            '生活感のある物（配線・私物）は画角から外す',
+          ],
+          hasImages: true,
+          images: ['./shoot-refs/cut-01.png', './shoot-refs/cut-02.png', './shoot-refs/cut-08.png', './shoot-refs/cut-09.png', './shoot-refs/cut-12.png'] },
+        { no: '07', section: 'グループレッスン', usage: 'コース紹介／地域コミュニティのギャラリー',
+          cuts: [
+            '📷 既存の活動写真から4〜6枚を選定（20名以上の回を最低1枚）',
+            '📷 可能なら当日、少人数グループの再現カット 1枚',
+          ],
+          tips: [
+            '「人数の多さ」と「笑顔」が伝わる引きのカットを優先',
+            '掲載許可は写っている方全員分。顔出しNGの方は後方・後ろ姿の構図で',
+          ],
+          hasImages: true,
+          images: ['./shoot-refs/cut-05.png'] },
+        { no: '08', section: 'ビフォーアフター関連', usage: '実例セクション（既存写真を継続使用）',
+          cuts: [
+            '📷 追加撮影は不要（既存のトリミング済み写真を使用）',
+            '📷 今後の症例用に、姿勢チェックの様子（壁際・横から）を1枚撮っておくと次回以降に使える',
+          ],
+          tips: [
+            '姿勢チェックカットは毎回同じ位置・同じ画角で撮ると比較写真として使い回せる',
+          ] },
+      ],
+      notes: [
+        '順番は 06 内観（人が入る前）→ 05 ポートレート → 02 パーソナル → 03 セミパーソナル → 01 動画 → 04 寄り、が効率的',
+        '服装：トレーナーはスタジオウェア、クライアント役は「普段着に近い動きやすい服」（ガチのジムウェアより通いやすさが伝わる）',
+        '各カット、横位置と縦位置を1枚ずつ押さえておくとHP・チラシ・Instagramすべてに転用できる',
+        '撮影データは明るめ・彩度控えめで納品してもらうと、サイトの白基調×オレンジに馴染む',
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
