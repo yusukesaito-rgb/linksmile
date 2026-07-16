@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Jost:wght@200;300;400;500;600&family=Poppins:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+</style>
+</helmet>
+<div style="font-family:'Zen Kaku Gothic New',sans-serif;background:#EDEAE1;padding:56px 48px 90px;min-width:1240px;color:#2B2820;">
+
+  <!-- ===================== TURN 4 — HEART LINK BRUSHUP ===================== -->
+  <section style="max-width:1200px;margin:0 auto 20px;">
+    <div style="display:inline-flex;align-items:center;gap:10px;background:#FF7A3D;color:#fff;border-radius:999px;padding:7px 16px;font-family:'Poppins',sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;margin-bottom:18px;">TURN 4 ・ M6 ハートリンク ブラッシュアップ</div>
+    <h1 style="font-family:'Poppins','Zen Maru Gothic',sans-serif;font-size:36px;font-weight:600;letter-spacing:.01em;margin:0 0 12px;">M6を、明るく・開かれたコミュニティへ</h1>
+    <p style="font-size:14.5px;line-height:1.95;color:#6E665A;margin:0;max-width:780px;">① まずは<strong style="font-weight:600;color:#FF7A3D;">色をもっと明るく生き生きと</strong>。② 次に、ハートリンクを<strong style="font-weight:600;color:#3DAA6B;">複数配置して「賑やかに広がる繋がり」</strong>を表現する展開案です。</p>
+  </section>
+
+  <!-- 4a color variants -->
+  <div style="max-width:1200px;margin:0 auto 30px;">
+    <div style="font-size:13px;font-weight:600;letter-spacing:.06em;color:#3D372C;margin-bottom:14px;font-family:'Poppins',sans-serif;">① カラーバリエーション ─ 明るいトーンへ</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+      <sc-for list="{{ heartColors }}" as="hc" hint-placeholder-count="4">
+        <div id="{{ hc.id }}" style="background:#fff;border:1px solid #E0DACB;border-radius:20px;overflow:hidden;box-shadow:0 18px 38px -28px rgba(61,55,44,.45);">
+          <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid #F0EBDF;">
+            <span style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#fff;background:{{ hc.badge }};min-width:36px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;">{{ hc.id }}</span>
+            <span style="font-size:13px;font-weight:500;font-family:'Zen Maru Gothic',sans-serif;">{{ hc.name }}</span>
+          </div>
+          <div style="background:{{ hc.bg }};min-height:180px;display:flex;align-items:center;justify-content:center;padding:24px;">{{ hc.mark }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- 4b community expansion -->
+  <div style="max-width:1200px;margin:0 auto 76px;">
+    <div style="font-size:13px;font-weight:600;letter-spacing:.06em;color:#3D372C;margin:34px 0 14px;font-family:'Poppins',sans-serif;">② コミュニティの広がり ─ 複数配置の展開案</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+
+      <div style="background:#fff;border:1px solid #E0DACB;border-radius:20px;overflow:hidden;box-shadow:0 18px 38px -28px rgba(61,55,44,.45);">
+        <div style="padding:14px 18px;border-bottom:1px solid #F0EBDF;font-size:13px;font-weight:500;font-family:'Zen Maru Gothic',sans-serif;">サークル・オブ・リンク</div>
+        <div style="position:relative;background:#FDF3EA;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden;">{{ ringPattern }}</div>
+        <div style="padding:14px 18px;font-size:12px;line-height:1.8;color:#6E665A;">たくさんの輪が円になって連なる＝コミュニティ全体が一つの大きな輪であることを表現。ロゴマーク・イベント告知・記念Tシャツの背中プリントなどに。</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E0DACB;border-radius:20px;overflow:hidden;box-shadow:0 18px 38px -28px rgba(61,55,44,.45);">
+        <div style="padding:14px 18px;border-bottom:1px solid #F0EBDF;font-size:13px;font-weight:500;font-family:'Zen Maru Gothic',sans-serif;">スキャッター（賑わい配置）</div>
+        <div style="position:relative;background:#EFF7F0;min-height:280px;overflow:hidden;">{{ scatterPattern }}</div>
+        <div style="padding:14px 18px;font-size:12px;line-height:1.8;color:#6E665A;">サイズ・向き・色をランダムに変えて散りばめる配置。WEBサイトの背景やセクション区切り、ノベルティの総柄プリントに。賑やかで開かれた印象。</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E0DACB;border-radius:20px;overflow:hidden;box-shadow:0 18px 38px -28px rgba(61,55,44,.45);">
+        <div style="padding:14px 18px;border-bottom:1px solid #F0EBDF;font-size:13px;font-weight:500;font-family:'Zen Maru Gothic',sans-serif;">リピートタイル（総柄）</div>
+        <div style="position:relative;background:#FBF8F0;min-height:280px;overflow:hidden;">{{ tilePattern }}</div>
+        <div style="padding:14px 18px;font-size:12px;line-height:1.8;color:#6E665A;">一定間隔できっちり並べた総柄パターン。Tシャツ・トートバッグ・ラッピングペーパーなど、生地・紙もの展開に向く整然としたバリエーション。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== TURN 3 — REFINED HUMAN ===================== -->
+  <section style="max-width:1200px;margin:0 auto 20px;">
+    <div style="display:inline-flex;align-items:center;gap:10px;background:#5E6B47;color:#fff;border-radius:999px;padding:7px 16px;font-family:'Poppins',sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;margin-bottom:18px;">TURN 3 ・ 大人向け・人のつながり</div>
+    <h1 style="font-family:'Poppins','Zen Maru Gothic',sans-serif;font-size:36px;font-weight:600;letter-spacing:.01em;margin:0 0 12px;">人的モチーフ × 洗練ブラッシュアップ（M1〜M6）</h1>
+    <p style="font-size:14.5px;line-height:1.95;color:#6E665A;margin:0;max-width:780px;">E3・E6の「人と人の繋がり・温かみ」をベースに、絵文字っぽさを排した<strong style="font-weight:600;color:#5E6B47;">人のシルエット／線画</strong>と、<strong style="font-weight:600;color:#5E6B47;">スッキリ大人っぽい丸ゴシック（Poppins）</strong>へ。親しみは残しつつ、プライベートスタジオとしての信頼感・質感を意識しました。</p>
+  </section>
+
+  <div style="max-width:1200px;margin:0 auto 76px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px;">
+    <sc-for list="{{ refined }}" as="lg" hint-placeholder-count="6">
+      <div id="{{ lg.id }}" style="background:#fff;border:1px solid #E0DACB;border-radius:22px;overflow:hidden;box-shadow:0 22px 46px -32px rgba(61,55,44,.5);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #F0EBDF;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:#fff;background:#5E6B47;min-width:40px;height:27px;padding:0 10px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;">{{ lg.id }}</span>
+            <span style="font-size:15.5px;font-weight:500;letter-spacing:.02em;font-family:'Zen Maru Gothic',sans-serif;">{{ lg.name }}</span>
+          </div>
+          <span style="font-family:'Poppins';font-size:11px;font-weight:500;letter-spacing:.1em;color:#C6A46A;">{{ lg.tag }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;">
+          <div style="background:#FBF8F0;min-height:210px;display:flex;align-items:center;justify-content:center;padding:26px;">{{ lg.light }}</div>
+          <div style="background:#2B2820;min-height:210px;display:flex;align-items:center;justify-content:center;padding:26px;border-left:1px solid #F0EBDF;">{{ lg.dark }}</div>
+        </div>
+        <div style="padding:16px 24px 20px;background:#fff;">
+          <p style="font-size:12.5px;line-height:1.8;color:#6E665A;margin:0;">{{ lg.note }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- ===================== TURN 2 — ENERGETIC ===================== -->
+  <section style="max-width:1200px;margin:0 auto 20px;">
+    <div style="display:inline-flex;align-items:center;gap:10px;background:#F0783C;color:#fff;border-radius:999px;padding:7px 16px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;margin-bottom:18px;">TURN 2 ・ もっと元気に、弾むように</div>
+    <h1 style="font-family:'Fredoka','Zen Maru Gothic',sans-serif;font-size:38px;font-weight:700;letter-spacing:.01em;margin:0 0 12px;">親しみ・躍動感マシマシ案（E1〜E6）</h1>
+    <p style="font-size:14.5px;line-height:1.95;color:#6E665A;margin:0;max-width:760px;">「幅広い世代が親しみやすく、楽しく弾んで、元気になれる場所」へ。<strong style="font-weight:700;color:#F0783C;">太いラインとメリハリ</strong>・<strong style="font-weight:700;color:#7CB342;">丸みのある文字</strong>・<strong style="font-weight:700;color:#E9A417;">跳ねる動き</strong>を効かせました。明色地・暗色地の両方で確認できます。</p>
+  </section>
+
+  <div style="max-width:1200px;margin:0 auto 76px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px;">
+    <sc-for list="{{ energetic }}" as="lg" hint-placeholder-count="6">
+      <div id="{{ lg.id }}" style="background:#fff;border:2px solid #EFE7D6;border-radius:26px;overflow:hidden;box-shadow:0 22px 46px -30px rgba(240,120,60,.45);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:2px solid #F5EEE0;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-family:'Fredoka',sans-serif;font-size:14px;font-weight:700;letter-spacing:.02em;color:#fff;background:{{ lg.badge }};min-width:42px;height:28px;padding:0 10px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;">{{ lg.id }}</span>
+            <span style="font-size:16px;font-weight:700;letter-spacing:.02em;font-family:'Zen Maru Gothic',sans-serif;">{{ lg.name }}</span>
+          </div>
+          <span style="font-family:'Fredoka';font-size:11px;font-weight:600;letter-spacing:.1em;color:#C6A46A;">{{ lg.tag }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;">
+          <div style="background:{{ lg.lightBg }};min-height:210px;display:flex;align-items:center;justify-content:center;padding:26px;">{{ lg.light }}</div>
+          <div style="background:#2B2820;min-height:210px;display:flex;align-items:center;justify-content:center;padding:26px;border-left:2px solid #F5EEE0;">{{ lg.dark }}</div>
+        </div>
+        <div style="padding:16px 24px 20px;background:#fff;">
+          <p style="font-size:12.5px;line-height:1.8;color:#6E665A;margin:0;">{{ lg.note }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- ===================== TURN 1 — REFINED ===================== -->
+  <section style="max-width:1200px;margin:0 auto 20px;padding-top:12px;border-top:2px dashed #D6CFBE;">
+    <div style="display:inline-flex;align-items:center;gap:10px;background:#8F9C66;color:#fff;border-radius:999px;padding:7px 16px;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;margin:24px 0 18px;">TURN 1 ・ 洗練・上品案</div>
+    <h2 style="font-family:'Jost';font-size:28px;font-weight:400;letter-spacing:.03em;margin:0 0 8px;">はじめの10案（L1〜L10）</h2>
+    <p style="font-size:13.5px;line-height:1.8;color:#6E665A;margin:0;max-width:700px;">最初にご提案したミニマル寄りのセット。比較用に残しています。</p>
+  </section>
+
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:26px;">
+    <sc-for list="{{ logos }}" as="lg" hint-placeholder-count="10">
+      <div id="{{ lg.id }}" style="background:#fff;border:1px solid #E0DACB;border-radius:22px;overflow:hidden;box-shadow:0 20px 44px -32px rgba(61,55,44,.5);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #F0EBDF;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-family:'Jost';font-size:13px;font-weight:500;letter-spacing:.06em;color:#fff;background:#8F9C66;width:38px;height:26px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;">{{ lg.id }}</span>
+            <span style="font-size:15px;font-weight:500;letter-spacing:.02em;">{{ lg.name }}</span>
+          </div>
+          <span style="font-family:'Jost';font-size:11px;letter-spacing:.14em;color:#B0A896;">{{ lg.tag }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;">
+          <div style="background:#FBF8F0;min-height:190px;display:flex;align-items:center;justify-content:center;padding:26px;">{{ lg.light }}</div>
+          <div style="background:#2B2820;min-height:190px;display:flex;align-items:center;justify-content:center;padding:26px;border-left:1px solid #F0EBDF;">{{ lg.dark }}</div>
+        </div>
+        <div style="padding:16px 24px 20px;background:#fff;">
+          <p style="font-size:12.5px;line-height:1.75;color:#6E665A;margin:0;">{{ lg.note }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1300,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    const R = React.createElement;
+    const G = '#8F9C66', GOLD = '#C2A878', DK = '#2B2820', CR = '#FBF8F0';
+    // energetic palette
+    const GRASS='#7CB342', GRASSL='#9DD05A', CORAL='#F0783C', SUN='#F4B740';
+
+    const svg = (w, h, children) => R('svg', { width:w, height:h, viewBox:`0 0 ${w} ${h}`, style:{ display:'block', overflow:'visible' } }, children);
+
+    /* ---------- bouncy rounded wordmark (letters on a bouncing baseline) ---------- */
+    const bounce = [ -7, 4, -3, 6, 0, -6, 3, -2, 5 ]; // per-letter y offset
+    const bouncyWord = (color, size, dot1, dot2) => {
+      const letters = 'LinkSmile'.split('');
+      // insert a visual gap after 'Link'
+      return R('div', { style:{ display:'flex', alignItems:'flex-end', fontFamily:"'Fredoka',sans-serif", fontWeight:700, fontSize:size+'px', lineHeight:1, letterSpacing:'.005em' } },
+        letters.map((ch, i) => R('span', {
+          key:i,
+          style:{
+            transform:`translateY(${bounce[i]}px)`,
+            color: (ch==='i') ? 'transparent' : color,
+            marginRight: (i===3) ? (size*0.34)+'px' : '0',
+            position:'relative',
+            display:'inline-block'
+          }
+        }, [
+          ch,
+          ch==='i' ? R('span', { key:'stem', style:{ position:'absolute', left:'18%', bottom:0, width:size*0.16+'px', height:size*0.5+'px', background:color, borderRadius:size+'px' } }) : null,
+          ch==='i' ? R('span', { key:'ball', style:{ position:'absolute', left:'2%', top:'-6%', width:size*0.42+'px', height:size*0.42+'px', background:(i<4?dot1:dot2), borderRadius:'50%' } }) : null,
+        ]))
+      );
+    };
+    const smileSwoosh = (c) => svg(150, 22, [
+      R('path', { key:'p', d:'M6 6 q69 30 138 0', fill:'none', stroke:c, strokeWidth:6, strokeLinecap:'round' }),
+    ]);
+
+    /* ---------- big smiley ball with bounce ---------- */
+    const smileyBall = (face, grinC) => svg(74, 74, [
+      R('path', { key:'sh', d:'M18 70 q19 8 38 0', fill:'none', stroke:'rgba(0,0,0,.10)', strokeWidth:5, strokeLinecap:'round' }),
+      R('circle', { key:'b', cx:37, cy:33, r:29, fill:face }),
+      R('circle', { key:'e1', cx:28, cy:27, r:3.4, fill:'#fff' }),
+      R('circle', { key:'e2', cx:46, cy:27, r:3.4, fill:'#fff' }),
+      R('path', { key:'m', d:'M25 38 q12 15 24 0', fill:'none', stroke:'#fff', strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'l1', d:'M2 20 l7 4', fill:'none', stroke:grinC, strokeWidth:4, strokeLinecap:'round' }),
+      R('path', { key:'l2', d:'M72 20 l-7 4', fill:'none', stroke:grinC, strokeWidth:4, strokeLinecap:'round' }),
+      R('path', { key:'l3', d:'M6 44 l7 -1', fill:'none', stroke:grinC, strokeWidth:4, strokeLinecap:'round' }),
+    ]);
+
+    /* ---------- two jumping ball characters ---------- */
+    const jumpers = (c1, c2) => svg(96, 66, [
+      R('ellipse', { key:'s1', cx:26, cy:60, rx:13, ry:3.4, fill:'rgba(0,0,0,.09)' }),
+      R('ellipse', { key:'s2', cx:70, cy:62, rx:13, ry:3.4, fill:'rgba(0,0,0,.09)' }),
+      // jumper 1 (up)
+      R('circle', { key:'b1', cx:26, cy:24, r:17, fill:c1 }),
+      R('path', { key:'a1a', d:'M12 18 q-6 -8 -10 -14', fill:'none', stroke:c1, strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'a1b', d:'M40 18 q6 -8 10 -14', fill:'none', stroke:c1, strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'m1', d:'M18 26 q8 9 16 0', fill:'none', stroke:'#fff', strokeWidth:4, strokeLinecap:'round' }),
+      R('circle', { key:'e1a', cx:21, cy:20, r:2.2, fill:'#fff' }), R('circle', { key:'e1b', cx:31, cy:20, r:2.2, fill:'#fff' }),
+      // jumper 2 (slightly lower)
+      R('circle', { key:'b2', cx:70, cy:32, r:17, fill:c2 }),
+      R('path', { key:'a2a', d:'M56 26 q-6 -8 -10 -14', fill:'none', stroke:c2, strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'a2b', d:'M84 26 q6 -8 10 -14', fill:'none', stroke:c2, strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'m2', d:'M62 34 q8 9 16 0', fill:'none', stroke:'#fff', strokeWidth:4, strokeLinecap:'round' }),
+      R('circle', { key:'e2a', cx:65, cy:28, r:2.2, fill:'#fff' }), R('circle', { key:'e2b', cx:75, cy:28, r:2.2, fill:'#fff' }),
+    ]);
+
+    /* ---------- sunburst happy face ---------- */
+    const sunburst = (face, ray) => svg(80, 80, (() => {
+      const kids = [];
+      for (let i=0;i<12;i++){
+        const a = (i/12)*Math.PI*2;
+        const x1 = 40 + Math.cos(a)*32, y1 = 40 + Math.sin(a)*32;
+        const x2 = 40 + Math.cos(a)*39, y2 = 40 + Math.sin(a)*39;
+        kids.push(R('path', { key:'r'+i, d:`M${x1} ${y1} L${x2} ${y2}`, stroke:ray, strokeWidth:5, strokeLinecap:'round' }));
+      }
+      kids.push(R('circle', { key:'f', cx:40, cy:40, r:24, fill:face }));
+      kids.push(R('circle', { key:'e1', cx:32, cy:35, r:3, fill:'#fff' }));
+      kids.push(R('circle', { key:'e2', cx:48, cy:35, r:3, fill:'#fff' }));
+      kids.push(R('path', { key:'m', d:'M29 44 q11 13 22 0', fill:'none', stroke:'#fff', strokeWidth:5, strokeLinecap:'round' }));
+      return kids;
+    })());
+
+    /* ---------- spring bounce ball ---------- */
+    const springBall = (ball, coil) => svg(58, 82, [
+      R('path', { key:'c', d:'M20 78 q-10 -6 0 -12 q10 -6 0 -12 q-10 -6 0 -12', fill:'none', stroke:coil, strokeWidth:5, strokeLinecap:'round', strokeLinejoin:'round' }),
+      R('circle', { key:'b', cx:26, cy:24, r:20, fill:ball }),
+      R('circle', { key:'e1', cx:19, cy:19, r:2.6, fill:'#fff' }), R('circle', { key:'e2', cx:31, cy:19, r:2.6, fill:'#fff' }),
+      R('path', { key:'m', d:'M16 27 q10 11 20 0', fill:'none', stroke:'#fff', strokeWidth:4.4, strokeLinecap:'round' }),
+      R('path', { key:'mo', d:'M50 8 q6 6 0 12', fill:'none', stroke:ball, strokeWidth:4, strokeLinecap:'round' }),
+    ]);
+
+    /* ---------- high-five / link arch ---------- */
+    const highfive = (c1, c2) => svg(96, 60, [
+      R('path', { key:'arch', d:'M24 54 Q48 6 72 54', fill:'none', stroke:SUN, strokeWidth:5, strokeLinecap:'round', strokeDasharray:'2 9' }),
+      R('circle', { key:'b1', cx:22, cy:40, r:15, fill:c1 }),
+      R('circle', { key:'b2', cx:74, cy:40, r:15, fill:c2 }),
+      R('path', { key:'a1', d:'M33 32 q9 -8 15 -4', fill:'none', stroke:c1, strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'a2', d:'M63 32 q-9 -8 -15 -4', fill:'none', stroke:c2, strokeWidth:5, strokeLinecap:'round' }),
+      R('path', { key:'m1', d:'M15 42 q7 8 14 0', fill:'none', stroke:'#fff', strokeWidth:4, strokeLinecap:'round' }),
+      R('path', { key:'m2', d:'M67 42 q7 8 14 0', fill:'none', stroke:'#fff', strokeWidth:4, strokeLinecap:'round' }),
+      R('circle', { key:'sp', cx:48, cy:16, r:3.4, fill:CORAL }),
+    ]);
+
+    /* ---------- lockups ---------- */
+    const stackBounce = (markFn, wordColor, dot1, dot2, sub, subColor) => R('div', { style:{ display:'flex', flexDirection:'column', alignItems:'center', gap:'14px' } }, [
+      R('div',{key:'m'},[markFn]),
+      bouncyWord(wordColor, 30, dot1, dot2),
+    ]);
+    const horizBounce = (markFn, wordColor, dot1, dot2) => R('div', { style:{ display:'flex', alignItems:'center', gap:'16px' } }, [
+      R('div',{key:'m', style:{flexShrink:0}},[markFn]),
+      bouncyWord(wordColor, 27, dot1, dot2),
+    ]);
+
+    /* ===================== TURN 3 (refined human) ===================== */
+    const SAGE='#6E7A50', SAGED='#5E6B47', SAGEL='#AEBB86', GOLD2='#C2A06A', GOLDL='#D6B27E', TERRA='#C67B54';
+
+    // refined wordmark — Poppins, clean & warm
+    const wordP = (color, size, sub, subColor) => R('div', { style:{ display:'flex', flexDirection:'column', alignItems:'center', gap:'7px' } }, [
+      R('div', { key:'w', style:{ fontFamily:"'Poppins',sans-serif", fontWeight:500, fontSize:size+'px', letterSpacing:'.05em', color, lineHeight:1 } }, ['Link Smile']),
+      sub ? R('div', { key:'s', style:{ fontFamily:"'Poppins',sans-serif", fontWeight:400, fontSize:(size*0.26)+'px', letterSpacing:'.34em', color:subColor } }, [sub]) : null,
+    ]);
+
+    // a clean silhouette person (head circle + soft bell body), filled
+    const person = (cx, headY, bodyBottom, r, color, key) => {
+      const bw = r*1.85, topY = headY + r + 2;
+      return R('g', { key }, [
+        R('circle', { key:'h', cx, cy:headY, r, fill:color }),
+        R('path', { key:'b', d:`M${cx-bw} ${bodyBottom} Q${cx-bw} ${topY} ${cx-bw*0.5} ${topY-1} Q${cx} ${topY-4} ${cx+bw*0.5} ${topY-1} Q${cx+bw} ${topY} ${cx+bw} ${bodyBottom} Z`, fill:color }),
+      ]);
+    };
+
+    // M1 — two silhouettes leaning together, linked by an arm arc
+    const twoLean = (c1, c2) => svg(96, 66, [
+      R('path', { key:'arm', d:'M30 26 Q48 12 66 26', fill:'none', stroke:GOLD2, strokeWidth:4.5, strokeLinecap:'round' }),
+      person(34, 24, 60, 10, c1, 'p1'),
+      person(62, 24, 60, 10, c2, 'p2'),
+    ]);
+
+    // M2 — community ring: heads on a "holding hands" circle
+    const ring = (c1, c2) => {
+      const cx=40, cy=42, rr=25, kids=[];
+      kids.push(R('circle',{key:'ring',cx,cy,r:rr,fill:'none',stroke:c1,strokeWidth:3.4}));
+      for(let i=0;i<6;i++){ const a=(-90+i*60)*Math.PI/180; const x=cx+Math.cos(a)*rr, y=cy+Math.sin(a)*rr; kids.push(R('circle',{key:'h'+i,cx:x,cy:y,r:6.4,fill:(i%2?c2:c1)})); }
+      return svg(80,84,kids);
+    };
+
+    // M3 — high-five arch, refined line art (heads filled, arms meet at apex)
+    const archLine = (c1, c2) => svg(96, 62, [
+      R('circle',{key:'h1',cx:22,cy:34,r:8.5,fill:c1}),
+      R('path',{key:'b1',d:'M22 43 L22 58',stroke:c1,strokeWidth:4.6,strokeLinecap:'round'}),
+      R('path',{key:'a1o',d:'M22 47 L11 55',stroke:c1,strokeWidth:4.2,strokeLinecap:'round'}),
+      R('path',{key:'a1i',d:'M22 44 Q36 34 47 20',fill:'none',stroke:c1,strokeWidth:4.4,strokeLinecap:'round'}),
+      R('circle',{key:'h2',cx:74,cy:34,r:8.5,fill:c2}),
+      R('path',{key:'b2',d:'M74 43 L74 58',stroke:c2,strokeWidth:4.6,strokeLinecap:'round'}),
+      R('path',{key:'a2o',d:'M74 47 L85 55',stroke:c2,strokeWidth:4.2,strokeLinecap:'round'}),
+      R('path',{key:'a2i',d:'M74 44 Q60 34 49 20',fill:'none',stroke:c2,strokeWidth:4.4,strokeLinecap:'round'}),
+      R('circle',{key:'sp',cx:48,cy:15,r:4,fill:GOLD2}),
+    ]);
+
+    // M4 — two silhouettes side by side + gentle smile ground line
+    const pairSmile = (c1, c2) => svg(96, 64, [
+      person(36, 22, 52, 11, c1, 'p1'),
+      person(60, 22, 52, 11, c2, 'p2'),
+      R('path',{key:'sm',d:'M20 58 Q48 70 76 58',fill:'none',stroke:GOLD2,strokeWidth:4.5,strokeLinecap:'round'}),
+    ]);
+
+    // M5 — single graceful balance figure on a ball (line art)
+    const balance = (c1, c2) => svg(70, 82, [
+      R('circle',{key:'ball',cx:35,cy:70,r:11,fill:'none',stroke:c2,strokeWidth:3.4}),
+      R('circle',{key:'h',cx:35,cy:16,r:8.5,fill:c1}),
+      R('path',{key:'b',d:'M35 25 L35 52',stroke:c1,strokeWidth:4.6,strokeLinecap:'round'}),
+      R('path',{key:'arms',d:'M12 30 Q35 40 58 30',fill:'none',stroke:c1,strokeWidth:4.2,strokeLinecap:'round'}),
+      R('path',{key:'l1',d:'M35 52 Q30 60 35 60',fill:'none',stroke:c1,strokeWidth:4.4,strokeLinecap:'round'}),
+      R('path',{key:'l2',d:'M35 52 L42 60',stroke:c1,strokeWidth:4.4,strokeLinecap:'round'}),
+    ]);
+
+    // M6 — two people forming a heart (arms sweep up into lobes)
+    const heartLink = (c1, c2) => svg(84, 74, [
+      R('path',{key:'lobeL',d:'M42 66 C42 48 16 48 16 30 C16 18 34 18 42 32',fill:'none',stroke:c1,strokeWidth:5,strokeLinecap:'round'}),
+      R('path',{key:'lobeR',d:'M42 66 C42 48 68 48 68 30 C68 18 50 18 42 32',fill:'none',stroke:c2,strokeWidth:5,strokeLinecap:'round'}),
+      R('circle',{key:'h1',cx:24,cy:40,r:7,fill:c1}),
+      R('circle',{key:'h2',cx:60,cy:40,r:7,fill:c2}),
+    ]);
+
+    const stackM = (m, ink, sub, subC) => R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'16px'}},[ R('div',{key:'m'},[m]), wordP(ink, 30, sub, subC) ]);
+    const horizM = (m, ink, sub, subC) => R('div',{style:{display:'flex',alignItems:'center',gap:'18px'}},[ R('div',{key:'m',style:{flexShrink:0}},[m]), R('div',{key:'w',style:{display:'flex',flexDirection:'column',gap:'4px'}},[ R('div',{key:'a',style:{fontFamily:"'Poppins',sans-serif",fontWeight:500,fontSize:'26px',letterSpacing:'.04em',color:ink,lineHeight:1}},['Link Smile']), R('div',{key:'b',style:{fontFamily:"'Poppins',sans-serif",fontWeight:400,fontSize:'8.5px',letterSpacing:'.3em',color:subC}},[sub]) ]) ]);
+
+    /* ===================== TURN 4 (heart link brushup) ===================== */
+    const FGREEN='#2FAE68', ORANGE='#FF7A3D', TEAL='#1FA79A', SUNNY='#FFB648', CORALP='#FF5C72';
+
+    const heartMini = (c1, c2, scale, rotate) => R('div', { style:{ transform:`scale(${scale}) rotate(${rotate||0}deg)`, transformOrigin:'center', lineHeight:0 } }, [ heartLink(c1, c2) ]);
+
+    const heartColors = [
+      { id:'C1', name:'フレッシュグリーン', badge:FGREEN, bg:'#EAF7EE',
+        mark: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[heartLink(FGREEN, SUNNY)]), wordP(DK, 26, 'LINK SMILE STUDIO', FGREEN) ]) },
+      { id:'C2', name:'ブライトオレンジ', badge:ORANGE, bg:'#FFF1E8',
+        mark: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[heartLink(ORANGE, TEAL)]), wordP(DK, 26, 'LINK SMILE STUDIO', ORANGE) ]) },
+      { id:'C3', name:'サニー×ティール', badge:TEAL, bg:'#E9F7F5',
+        mark: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[heartLink(TEAL, SUNNY)]), wordP(DK, 26, 'LINK SMILE STUDIO', TEAL) ]) },
+      { id:'C4', name:'サンセットミックス', badge:ORANGE, bg:'#FFF0EC',
+        mark: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[heartLink(ORANGE, FGREEN)]), wordP(DK, 26, 'LINK SMILE STUDIO', ORANGE) ]) },
+    ];
+
+    // ring pattern — hearts arranged in a circle
+    const ringPairs = [[FGREEN,SUNNY],[ORANGE,TEAL],[TEAL,SUNNY],[ORANGE,FGREEN],[CORALP,SUNNY],[FGREEN,ORANGE],[TEAL,CORALP],[SUNNY,ORANGE]];
+    const ringItems = [];
+    const RCX=150, RCY=140, RR=98;
+    for (let i=0;i<8;i++){
+      const ang = (i/8)*Math.PI*2 - Math.PI/2;
+      const x = RCX + Math.cos(ang)*RR, y = RCY + Math.sin(ang)*RR;
+      const [c1,c2] = ringPairs[i];
+      ringItems.push(R('div', { key:'r'+i, style:{ position:'absolute', left:(x-23)+'px', top:(y-20)+'px' } }, [ heartMini(c1, c2, 0.56, 0) ]));
+    }
+    const ringPattern = R('div', { style:{ position:'relative', width:'300px', height:'280px' } }, [
+      ...ringItems,
+      R('div', { key:'ctr', style:{ position:'absolute', left:'50%', top:'50%', transform:'translate(-50%,-50%)', textAlign:'center' } }, [
+        R('div', { key:'t', style:{ fontFamily:"'Poppins',sans-serif", fontWeight:500, fontSize:'12px', letterSpacing:'.16em', color:'#B98A5A' } }, ['COMMUNITY']),
+      ]),
+    ]);
+
+    // scatter pattern — organic scattered placement
+    const scatterSpecs = [
+      {x:8,y:10,s:0.62,r:-8,p:[FGREEN,SUNNY]}, {x:34,y:6,s:0.42,r:14,p:[ORANGE,TEAL]}, {x:60,y:14,s:0.7,r:-4,p:[TEAL,SUNNY]},
+      {x:82,y:8,s:0.4,r:20,p:[CORALP,SUNNY]}, {x:14,y:42,s:0.46,r:10,p:[ORANGE,FGREEN]}, {x:44,y:38,s:0.6,r:-14,p:[FGREEN,ORANGE]},
+      {x:72,y:44,s:0.5,r:6,p:[TEAL,CORALP]}, {x:92,y:38,s:0.58,r:-10,p:[ORANGE,SUNNY]}, {x:6,y:74,s:0.5,r:8,p:[SUNNY,FGREEN]},
+      {x:30,y:78,s:0.66,r:-6,p:[TEAL,ORANGE]}, {x:58,y:72,s:0.42,r:16,p:[FGREEN,CORALP]}, {x:84,y:76,s:0.54,r:-12,p:[ORANGE,TEAL]},
+    ];
+    const scatterPattern = R('div', { style:{ position:'relative', width:'100%', height:'280px' } },
+      scatterSpecs.map((sp,i) => R('div', { key:'s'+i, style:{ position:'absolute', left:sp.x+'%', top:sp.y+'%' } }, [ heartMini(sp.p[0], sp.p[1], sp.s, sp.r) ]))
+    );
+
+    // repeat tile pattern — evenly gridded
+    const tileColors = [[FGREEN,SUNNY],[ORANGE,TEAL]];
+    const tileItems = [];
+    for (let row=0; row<4; row++){
+      for (let col=0; col<6; col++){
+        const idx = (row+col)%2;
+        const offsetX = (row%2===0) ? 0 : 8.3;
+        tileItems.push(R('div', { key:`t${row}-${col}`, style:{ position:'absolute', left:(col*16.6+offsetX)+'%', top:(row*24)+'%' } }, [ heartMini(tileColors[idx][0], tileColors[idx][1], 0.4, 0) ]));
+      }
+    }
+    const tilePattern = R('div', { style:{ position:'relative', width:'100%', height:'280px', overflow:'hidden' } }, tileItems);
+
+    const refined = [
+      { id:'M1', name:'寄り添う二人', tag:'HUMAN SILHOUETTE',
+        light: horizM(twoLean(SAGE, TERRA), DK, 'PRIVATE STUDIO', SAGE),
+        dark:  horizM(twoLean(SAGEL, GOLDL), CR, 'PRIVATE STUDIO', SAGEL),
+        note:'2つの人影が肩を寄せ合い、上を渡す腕が二人を繋ぐ（Link）。E6の温かみをシルエットで洗練。信頼感のある横組みロックアップ。' },
+
+      { id:'M2', name:'つながる輪', tag:'COMMUNITY MARK',
+        light: stackM(ring(SAGE, GOLD2), DK, 'LINK SMILE ・ AZAMINO', SAGE),
+        dark:  stackM(ring(SAGEL, GOLDL), CR, 'LINK SMILE ・ AZAMINO', SAGEL),
+        note:'手を取り合い輪になる人々。地域コミュニティ・世代を超えたつながりを、円というシンプルで普遍的な形に。落ち着いた品のある印象。' },
+
+      { id:'M3', name:'ハイタッチ・アーチ', tag:'LINE ART',
+        light: stackM(archLine(SAGE, TERRA), DK, 'PRIVATE STUDIO', SAGE),
+        dark:  stackM(archLine(SAGEL, GOLDL), CR, 'PRIVATE STUDIO', SAGEL),
+        note:'E6を線画に昇華。2人が腕を伸ばして出会い、門型のアーチを描く。躍動感と達成感を、余白を効かせたミニマルな線で上品に。' },
+
+      { id:'M4', name:'二人とスマイル', tag:'HUMAN SILHOUETTE',
+        light: horizM(pairSmile(SAGE, TERRA), DK, 'PRIVATE STUDIO', SAGE),
+        dark:  horizM(pairSmile(SAGEL, GOLDL), CR, 'PRIVATE STUDIO', SAGEL),
+        note:'寄り添う2つの人影の足元に、そっと微笑む一本の弧（Smile）。人＝Link、弧＝Smile を静かに両立させた、安定感のある案。' },
+
+      { id:'M5', name:'しなやかバランス', tag:'LINE ART',
+        light: horizM(balance(SAGE, GOLD2), DK, 'PRIVATE STUDIO', SAGE),
+        dark:  horizM(balance(SAGEL, GOLDL), CR, 'PRIVATE STUDIO', SAGEL),
+        note:'ボールの上で軽やかに立つ一人の人影。バランスボール・体幹・美しい姿勢という提供価値を、洗練された線画のポーズで表現。' },
+
+      { id:'M6', name:'ハートリンク', tag:'CONNECTION MARK',
+        light: stackM(heartLink(SAGE, TERRA), DK, 'LINK SMILE STUDIO', SAGE),
+        dark:  stackM(heartLink(SAGEL, GOLDL), CR, 'LINK SMILE STUDIO', SAGEL),
+        note:'2人が腕を伸ばし合い、その軌跡がハートを描く。温かみ・繋がり・想いを一筆書き風に。線を細めに保ち、甘くなりすぎない大人の余白。' },
+    ];
+
+    const energetic = [
+      { id:'E1', name:'バウンド・ワードマーク', tag:'PLAYFUL WORDMARK', badge:'#F0783C', lightBg:'#FDF6EC',
+        light: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'8px'}},[ bouncyWord(DK,40,GRASS,CORAL), R('div',{key:'s'},[smileSwoosh(CORAL)]) ]),
+        dark:  R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'8px'}},[ bouncyWord(CR,40,GRASSL,SUN), R('div',{key:'s'},[smileSwoosh(SUN)]) ]),
+        note:'太く丸いFredokaの文字を跳ねる並びに。i の点を弾むボールに、下にニコッとしたスマイルの一筆。文字だけで元気と楽しさが伝わる主役案。' },
+
+      { id:'E2', name:'ごきげんスマイルボール', tag:'MASCOT + WORDMARK', badge:'#7CB342', lightBg:'#F1F7E8',
+        light: horizBounce(smileyBall(CORAL, GRASS), DK, GRASS, CORAL),
+        dark:  horizBounce(smileyBall(CORAL, GRASSL), CR, GRASSL, SUN),
+        note:'大きな口でニコッと笑うボールに、跳ねる動きの線を添えて。世代を問わず一目で「楽しそう・元気」が伝わる、看板・SNS映えするマスコット。' },
+
+      { id:'E3', name:'ジャンプ！キャラ', tag:'DYNAMIC MASCOT', badge:'#F0783C', lightBg:'#FDF6EC',
+        light: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'12px'}},[ R('div',{key:'m'},[jumpers(GRASS,CORAL)]), bouncyWord(DK,26,GRASS,CORAL) ]),
+        dark:  R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'12px'}},[ R('div',{key:'m'},[jumpers(GRASSL,SUN)]), bouncyWord(CR,26,GRASSL,SUN) ]),
+        note:'手を挙げて一緒に飛び跳ねる2人のキャラ。「みんなで楽しく弾む」躍動感そのもの。セミパーソナル・グループの賑わいも表現。' },
+
+      { id:'E4', name:'ニコニコ・サンバースト', tag:'ENERGY EMBLEM', badge:'#E9A417', lightBg:'#FEF7E4',
+        light: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[sunburst(GRASS,SUN)]), bouncyWord(DK,28,GRASS,CORAL) ]),
+        dark:  R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[sunburst(GRASSL,SUN)]), bouncyWord(CR,28,GRASSL,SUN) ]),
+        note:'笑顔から元気が放射する太陽モチーフ。ポジティブで明るく、健康的なエネルギーを象徴。ワッペンやスタンプ展開にも強いエンブレム。' },
+
+      { id:'E5', name:'ぽよんスプリング', tag:'BOUNCE ICON', badge:'#7CB342', lightBg:'#F1F7E8',
+        light: horizBounce(springBall(CORAL, GRASS), DK, GRASS, CORAL),
+        dark:  horizBounce(springBall(CORAL, GRASSL), CR, GRASSL, SUN),
+        note:'バネの上で弾むボール。「ぽよん」とした弾力＝バランスボールの躍動を最もダイレクトに表現。楽しく・動きのあるアイコン。' },
+
+      { id:'E6', name:'ハイタッチ・リンク', tag:'COMMUNITY MARK', badge:'#F0783C', lightBg:'#FDF6EC',
+        light: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'12px'}},[ R('div',{key:'m'},[highfive(GRASS,CORAL)]), bouncyWord(DK,26,GRASS,CORAL) ]),
+        dark:  R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'12px'}},[ R('div',{key:'m'},[highfive(GRASSL,SUN)]), bouncyWord(CR,26,GRASSL,SUN) ]),
+        note:'2人がハイタッチで繋がる（Link）姿。アーチの点線が弾む軌道。親しみ・仲間・元気を一度に伝える、コミュニティ感の強い案。' },
+    ];
+
+    /* ===================== TURN 1 (refined) ===================== */
+    const word = (color, sub, subColor) => R('div', { style:{ display:'flex', flexDirection:'column', alignItems:'center', gap:'6px' } }, [
+      R('div', { key:'w', style:{ fontFamily:"'Jost',sans-serif", fontWeight:300, fontSize:'34px', letterSpacing:'.14em', color, lineHeight:1 } }, ['Link Smile']),
+      sub ? R('div', { key:'s', style:{ fontFamily:"'Jost',sans-serif", fontWeight:400, fontSize:'9px', letterSpacing:'.42em', color:subColor, marginLeft:'.42em' } }, [sub]) : null,
+    ]);
+    const svg2 = svg;
+    const linkRings = (c1, c2) => svg2(66, 44, [ R('circle',{key:'a',cx:24,cy:22,r:15,fill:'none',stroke:c1,strokeWidth:3.4}), R('circle',{key:'b',cx:44,cy:22,r:15,fill:'none',stroke:c2,strokeWidth:3.4}), R('path',{key:'s',d:'M27 24 q7 7 14 0',fill:'none',stroke:c1,strokeWidth:3,strokeLinecap:'round'}) ]);
+    const ballSmile = (c1, c2) => svg2(52,52,[ R('circle',{key:'o',cx:26,cy:26,r:22,fill:'none',stroke:c1,strokeWidth:3.4}), R('circle',{key:'e1',cx:19,cy:21,r:2.4,fill:c2}), R('circle',{key:'e2',cx:33,cy:21,r:2.4,fill:c2}), R('path',{key:'m',d:'M17 30 q9 10 18 0',fill:'none',stroke:c1,strokeWidth:3.2,strokeLinecap:'round'}) ]);
+    const monogram = (c1, c2) => svg2(58,52,[ R('path',{key:'l',d:'M14 8 L14 44 L32 44',fill:'none',stroke:c1,strokeWidth:4,strokeLinecap:'round',strokeLinejoin:'round'}), R('path',{key:'s',d:'M46 15 q-2 -8 -12 -6 q-10 2 -8 11 q2 8 14 7 q12 -1 8 10 q-3 8 -15 4',fill:'none',stroke:c2,strokeWidth:4,strokeLinecap:'round'}) ]);
+    const sprout = (c1, c2) => svg2(50,52,[ R('path',{key:'stem',d:'M25 46 L25 22',fill:'none',stroke:c1,strokeWidth:3,strokeLinecap:'round'}), R('path',{key:'lf1',d:'M25 26 q-16 -2 -18 -18 q16 2 18 18Z',fill:c1}), R('path',{key:'lf2',d:'M25 20 q16 -3 18 -17 q-16 1 -18 17Z',fill:c2}), R('circle',{key:'g',cx:25,cy:48,r:2.6,fill:c1}) ]);
+    const infinity = (c1, c2) => svg2(66,40,[ R('path',{key:'p',d:'M12 20 q6 -14 21 0 q15 14 21 0 q-6 14 -21 0 q-15 -14 -21 0Z',fill:'none',stroke:c1,strokeWidth:3.4,strokeLinecap:'round'}), R('circle',{key:'d',cx:33,cy:20,r:2.6,fill:c2}) ]);
+    const seal = (c1, c2) => svg2(58,58,[ R('circle',{key:'o',cx:29,cy:29,r:27,fill:'none',stroke:c1,strokeWidth:1.6}), R('circle',{key:'o2',cx:29,cy:29,r:22,fill:'none',stroke:c2,strokeWidth:1}), R('path',{key:'m',d:'M19 30 q10 11 20 0',fill:'none',stroke:c1,strokeWidth:3,strokeLinecap:'round'}), R('circle',{key:'e1',cx:22,cy:23,r:2,fill:c1}), R('circle',{key:'e2',cx:36,cy:23,r:2,fill:c1}) ]);
+    const arc = (c1, c2) => svg2(64,40,[ R('path',{key:'a',d:'M8 12 q24 34 48 0',fill:'none',stroke:c1,strokeWidth:4,strokeLinecap:'round'}), R('circle',{key:'d1',cx:8,cy:12,r:3.4,fill:c2}), R('circle',{key:'d2',cx:56,cy:12,r:3.4,fill:c1}) ]);
+    const people = (c1, c2) => svg2(60,46,[ R('circle',{key:'h1',cx:16,cy:14,r:6.5,fill:c1}), R('circle',{key:'h2',cx:44,cy:14,r:6.5,fill:c2}), R('path',{key:'b',d:'M6 40 q10 -16 20 -4 q4 5 8 0 q10 -12 20 4',fill:'none',stroke:c1,strokeWidth:3.2,strokeLinecap:'round'}) ]);
+    const ballRing = (c1, c2) => svg2(56,56,[ R('ellipse',{key:'r',cx:28,cy:28,rx:26,ry:11,fill:'none',stroke:c2,strokeWidth:2,transform:'rotate(-24 28 28)'}), R('circle',{key:'b',cx:28,cy:28,r:14,fill:c1}), R('path',{key:'sm',d:'M22 30 q6 6 12 0',fill:'none',stroke:CR,strokeWidth:2.4,strokeLinecap:'round'}) ]);
+    const enclosed = (c1, c2) => svg2(56,56,[ R('rect',{key:'sq',x:2,y:2,width:52,height:52,rx:15,fill:'none',stroke:c1,strokeWidth:2.4}), R('path',{key:'l',d:'M20 16 L20 40 L30 40',fill:'none',stroke:c1,strokeWidth:3.2,strokeLinecap:'round',strokeLinejoin:'round'}), R('circle',{key:'dot',cx:38,cy:22,r:4.4,fill:c2}), R('path',{key:'sw',d:'M33 34 q5 6 10 0',fill:'none',stroke:c2,strokeWidth:3,strokeLinecap:'round'}) ]);
+
+    const stacked = (m, ink, sc) => R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px'}},[ R('div',{key:'m'},[m]), word(ink,'AZAMINO',sc) ]);
+    const horiz = (m, ink, sc) => R('div',{style:{display:'flex',alignItems:'center',gap:'16px'}},[ R('div',{key:'m',style:{flexShrink:0}},[m]), R('div',{key:'w',style:{display:'flex',flexDirection:'column',gap:'3px'}},[ R('div',{key:'a',style:{fontFamily:"'Jost',sans-serif",fontWeight:300,fontSize:'27px',letterSpacing:'.1em',color:ink,lineHeight:1}},['Link Smile']), R('div',{key:'b',style:{fontFamily:"'Jost',sans-serif",fontWeight:400,fontSize:'8px',letterSpacing:'.34em',color:sc}},['PRIVATE STUDIO']) ]) ]);
+
+    const logos = [
+      { id:'L1', name:'リンクリング', tag:'SYMBOL + WORDMARK', light: stacked(linkRings(G, GOLD), DK, G), dark: stacked(linkRings('#B7C48E', GOLD), CR, '#B7C48E'), note:'2つの輪＝人と人の繋がり（Link）。重なりの中に小さな笑顔の弧を隠したシンボル。' },
+      { id:'L2', name:'スマイルボール', tag:'ICON MARK', light: horiz(ballSmile(G, GOLD), DK, GOLD), dark: horiz(ballSmile('#B7C48E', GOLD), CR, GOLD), note:'バランスボールに笑顔を重ねたアイコン。親しみやすく視認性の高い横組み。' },
+      { id:'L3', name:'LSモノグラム', tag:'MONOGRAM', light: stacked(monogram(DK, GOLD), DK, G), dark: stacked(monogram(CR, GOLD), CR, '#B7C48E'), note:'L と S を絡めた頭文字マーク。上品でクリニカルな信頼感。' },
+      { id:'L4', name:'リーフバランス', tag:'SYMBOL + WORDMARK', light: stacked(sprout(G, GOLD), DK, G), dark: stacked(sprout('#B7C48E', GOLD), CR, '#B7C48E'), note:'2枚の葉が軸の上でバランスを取る新芽。健康・成長を象徴。' },
+      { id:'L5', name:'インフィニティ', tag:'WORDMARK LOCKUP', light: stacked(infinity(G, GOLD), DK, G), dark: stacked(infinity('#B7C48E', GOLD), CR, '#B7C48E'), note:'∞のラインが笑顔の弧を描く。続く繋がり・健康寿命を一筆書きで。' },
+      { id:'L6', name:'サークルシール', tag:'EMBLEM', light: stacked(seal(G, GOLD), DK, G), dark: stacked(seal('#B7C48E', GOLD), CR, '#B7C48E'), note:'二重円の中に笑顔を収めた紋章型。物販・空間展開に強い。' },
+      { id:'L7', name:'スマイルアーク', tag:'MINIMAL WORDMARK', light: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'10px'}},[R('div',{key:'m'},[arc(G,GOLD)]), word(DK,'LINK SMILE STUDIO',G)]), dark: R('div',{style:{display:'flex',flexDirection:'column',alignItems:'center',gap:'10px'}},[R('div',{key:'m'},[arc('#B7C48E',GOLD)]), word(CR,'LINK SMILE STUDIO','#B7C48E')]), note:'点と点を結ぶ一本の弧＝繋がりであり笑顔。最もミニマル。' },
+      { id:'L8', name:'ペアリンク', tag:'ICON MARK', light: horiz(people(G, GOLD), DK, GOLD), dark: horiz(people('#B7C48E', GOLD), CR, GOLD), note:'2人が寄り添う姿と笑顔のライン。セミパーソナルの安心感。' },
+      { id:'L9', name:'モーションボール', tag:'DYNAMIC ICON', light: horiz(ballRing(G, GOLD), DK, GOLD), dark: horiz(ballRing('#B7C48E', GOLD), CR, GOLD), note:'弾むボールの周りに軌道リング。躍動感とバランスを強調。' },
+      { id:'L10', name:'スクエアエンブレム', tag:'ENCLOSED LOCKUP', light: horiz(enclosed(G, GOLD), DK, GOLD), dark: horiz(enclosed('#B7C48E', GOLD), CR, GOLD), note:'角丸スクエアに封入。アプリ・ファビコン・LINEに好適。' },
+    ];
+
+    return { heartColors, ringPattern, scatterPattern, tilePattern, refined, energetic, logos };
+  }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Link Smile Logos";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>

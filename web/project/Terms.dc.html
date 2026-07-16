@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+</style>
+</helmet>
+<div style="font-family:'Zen Kaku Gothic New',sans-serif;background:#FAF6F0;color:#3D372C;min-height:100vh;line-height:1.9;">
+  <header style="padding:26px 44px;border-bottom:1px solid #FFE8D6;background:#fff;">
+    <div style="max-width:820px;margin:0 auto;display:flex;align-items:center;gap:10px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#FFB789;display:inline-block;"></span>
+      <span style="font-family:'Jost',sans-serif;font-weight:300;font-size:20px;letter-spacing:.12em;">Link & Smile</span>
+    </div>
+  </header>
+
+  <div style="max-width:820px;margin:0 auto;padding:68px 44px 100px;">
+    <div style="font-family:'Jost';font-size:12px;letter-spacing:.3em;color:#FFB789;margin-bottom:16px;">TERMS OF SERVICE</div>
+    <h1 style="font-size:30px;font-weight:700;letter-spacing:.04em;margin:0 0 40px;">利用規約</h1>
+
+    <sc-for list="{{ articles }}" as="a" hint-placeholder-count="6">
+      <section style="margin-bottom:38px;">
+        <h2 style="font-size:17px;font-weight:700;letter-spacing:.03em;margin:0 0 14px;color:#3D372C;">{{ a.title }}</h2>
+        <sc-if value="{{ a.body }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size:14.5px;line-height:2.05;color:#544c41;margin:0;">{{ a.body }}</p>
+        </sc-if>
+        <sc-if value="{{ a.list }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ a.list }}" as="li" hint-placeholder-count="3">
+              <div style="display:flex;gap:10px;font-size:14.5px;line-height:2.05;color:#544c41;">
+                <span style="flex-shrink:0;color:#FFB789;">・</span>{{ li }}
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </section>
+    </sc-for>
+
+    <div style="margin-top:56px;padding-top:28px;border-top:1px solid #FFE8D6;">
+      <a href="./Link & Smile LP.dc.html" style="font-size:13.5px;color:#C77A3E;text-decoration:none;">← トップページに戻る</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:900,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      articles: [
+        { title: '第1条（目的・同意）', body: '本規約は、「Link & Smile」が提供するサービスを利用する全ての会員に適用されます。利用申込みをもって本規約に同意したものとみなします。' },
+        { title: '第2条（料金・支払い）', body: '当スタジオの料金は、クレジットカードによる事前決済を原則とします。決済完了をもって予約確定となります。一度納入された代金は、いかなる理由があっても返金いたしかねます。分割払いをご希望の方は、決済完了後、お客様ご自身でカード会社へご連絡し、変更手続きをお願いいたします。' },
+        { title: '第3条（入会資格および免責事項）', body: '当スタジオは、当サービスの理念に賛同し、利用規約を承認された方を対象としております。なお、健全なスタジオ運営のため、以下の基準を設けております。', list: [
+          '入会判断：当スタジオの自由な裁量により、入会申し込みの承認またはお断りをする場合がございます（その際、理由の開示はいたしかねます）。',
+          '入会いただけない方・退会対象となる方：利用規約および各種同意書の内容を遵守できない方／医師等により運動を禁じられている方／当スタジオの利用に健康上の著しい支障がある方',
+          '※健康状態に少しでも不安がある場合は、必ず事前にご相談ください。無断で体調不良を隠してのトレーニング参加は、命に関わる重大な事故を招く恐れがあるため、固くお断りいたします。安全なトレーニング実施のため、虚偽のない報告をお願いいたします。',
+          '退会措置：入会後であっても、上記に該当する事実が発覚した場合は、規約違反として直ちに退会処分とさせていただく場合がございます。',
+        ] },
+        { title: '第4条（キャンセルポリシー）', body: '予約の変更・キャンセルは、前日の23時59分までにご連絡ください。当日のキャンセルは、チケット1回分（コース1回分）を消化したものとみなします。' },
+        { title: '第5条（有効期限）', body: '各コース・チケットには有効期限がございます。期限を過ぎた場合、残回数は無効となり払い戻しは行えません。' },
+        { title: '第6条（免責事項・健康管理）', body: '当スタジオ利用における怪我や体調不良等について、当方に過失がある場合を除き、一切の責任を負いかねます。健康管理は各自の責任において行ってください。' },
+        { title: '第7条（禁止事項）', body: '他会員への迷惑行為や勧誘、運営を妨げる行為を禁止します。悪質な場合は退会処分とする場合があります。' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

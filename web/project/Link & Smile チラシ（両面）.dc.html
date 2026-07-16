@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#EDEAE1;font-family:'Zen Kaku Gothic New',sans-serif;}
+.pg-wrap{padding:44px;display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+.pg-label{font:700 13px/1.2 'Zen Kaku Gothic New',sans-serif;color:#2B2820;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.pg-tag{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 8px;background:#2B2820;color:#fff;border-radius:4px;}
+.pg-card{background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:6px;box-shadow:0 10px 34px -14px rgba(0,0,0,.3);overflow:hidden;}
+image-slot{display:block !important;width:100% !important;height:100% !important;}
+.eyebrow{font-family:'Jost';font-size:11px;letter-spacing:.28em;color:#E8935C;font-weight:500;}
+.tag{background:#fff;border:1px solid #FFE8D6;border-radius:999px;padding:6px 13px;font-size:10.5px;font-weight:700;color:#544c41;white-space:nowrap;}
+.line-badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#fff;background:#06C755;padding:9px 16px;border-radius:999px;white-space:nowrap;text-decoration:none;}
+.ig-badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#fff;background:linear-gradient(105deg,#F58529,#DD2A7B 55%,#8134AF 90%);padding:9px 16px;border-radius:999px;white-space:nowrap;text-decoration:none;}
+.reserve-badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#fff;background:#FFB789;padding:9px 16px;border-radius:999px;white-space:nowrap;text-decoration:none;}
+</style>
+</helmet>
+
+<div class="pg-wrap">
+
+  <!-- ============ FRONT ============ -->
+  <div>
+    <div class="pg-label"><span class="pg-tag">表面</span>チラシ表 ─ ヒーロー・お悩み・メソッド</div>
+    <div class="pg-card" style="width:794px;">
+      <div style="width:794px;height:1123px;background:#FAF4EC;position:relative;font-family:'Zen Kaku Gothic New',sans-serif;color:#2B2820;overflow:hidden;display:flex;flex-direction:column;">
+
+        <!-- hero photo -->
+        <div style="position:relative;height:420px;flex-shrink:0;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fr-hero" style="width:100%;height:100%;" shape="rect" src="assets/origin-studio.png" credit="参考イメージ" placeholder="スタジオ／レッスン風景のキービジュアル" hint-size="794px,420px"></x-import>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,40,32,.25) 0%,rgba(43,40,32,.05) 45%,rgba(43,40,32,.55) 100%);pointer-events:none;"></div>
+          <div style="position:absolute;left:40px;top:28px;display:flex;align-items:center;gap:9px;">
+            <svg width="26" height="23" viewBox="0 0 84 74"><path d="M42 66 C42 48 16 48 16 30 C16 18 34 18 42 32" fill="none" stroke="#FFB789" stroke-width="7" stroke-linecap="round"></path><path d="M42 66 C42 48 68 48 68 30 C68 18 50 18 42 32" fill="none" stroke="#C7EB63" stroke-width="7" stroke-linecap="round"></path><circle cx="24" cy="40" r="8" fill="#FFB789"></circle><circle cx="60" cy="40" r="8" fill="#C7EB63"></circle></svg>
+            <span style="font-family:'Jost';font-weight:400;font-size:19px;letter-spacing:.1em;color:#fff;">Link &amp; Smile</span>
+          </div>
+          <div style="position:absolute;left:40px;bottom:26px;right:40px;">
+            <div style="font-family:'Jost';font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.85);margin-bottom:10px;">AZAMINO ・ PRIVATE STUDIO</div>
+            <h1 style="margin:0;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:34px;line-height:1.4;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.3);">はじめての人こそ、<br>続けられる場所。</h1>
+          </div>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;padding:26px 40px 0;">
+
+          <p style="font-size:13px;line-height:1.9;color:#544c41;margin:0 0 20px;">マシンのない贅沢を、あざみ野の完全個室で。ひとりでも、大切な人と一緒でも。</p>
+
+          <!-- concerns -->
+          <div class="eyebrow" style="margin-bottom:10px;">YOUR CONCERNS ─ こんなお悩み、ありませんか？</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;">
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 10px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:8px;">🪑</div>
+              <div style="font-size:11.5px;font-weight:700;line-height:1.5;">姿勢の崩れ<br>猫背</div>
+            </div>
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 10px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:8px;">💢</div>
+              <div style="font-size:11.5px;font-weight:700;line-height:1.5;">慢性的な<br>肩こり・首こり</div>
+            </div>
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 10px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:8px;">🦴</div>
+              <div style="font-size:11.5px;font-weight:700;line-height:1.5;">腰痛<br>反り腰</div>
+            </div>
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 10px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:8px;">🌧️</div>
+              <div style="font-size:11.5px;font-weight:700;line-height:1.5;">気分の落ち込み<br>不調</div>
+            </div>
+          </div>
+
+          <div style="background:#2B2820;border-radius:16px;padding:16px 22px;margin-bottom:24px;">
+            <div style="font-size:12px;line-height:1.9;color:#F4F1E8;font-weight:500;font-family:'Zen Maru Gothic',sans-serif;text-align:center;">その不調の背景には、多くの場合<span style="color:#C7EB63;">「骨盤のゆがみ」</span>や<span style="color:#C7EB63;">「体幹の緩み」</span>が関係しています。</div>
+          </div>
+
+          <!-- method -->
+          <div class="eyebrow" style="margin-bottom:10px;">OUR METHOD ─ 骨盤が整うと、不調の連鎖がほどけていく。</div>
+          <div style="display:flex;gap:20px;align-items:center;margin-bottom:20px;">
+            <div style="width:168px;height:168px;border-radius:16px;overflow:hidden;flex-shrink:0;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="fr-method" style="width:100%;height:100%;" shape="rect" src="assets/photo-method-closeup.png" credit="参考イメージ" placeholder="バランスボールに座る接写カット" hint-size="168px,168px"></x-import>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:24px;height:24px;border-radius:50%;background:#FFB789;color:#fff;font-family:'Jost';font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+                <div style="font-size:12.5px;font-weight:700;color:#3D372C;">骨盤が、正しい位置に戻る</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:24px;height:24px;border-radius:50%;background:#FFB789;color:#fff;font-family:'Jost';font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+                <div style="font-size:12.5px;font-weight:700;color:#3D372C;">背骨が整い、姿勢が変わる</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:24px;height:24px;border-radius:50%;background:#FFB789;color:#fff;font-family:'Jost';font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+                <div style="font-size:12.5px;font-weight:700;color:#3D372C;">腰痛・肩こりがやわらぐ</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="width:24px;height:24px;border-radius:50%;background:#C7EB63;color:#2B2820;font-family:'Jost';font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</span>
+                <div style="font-size:12.5px;font-weight:900;color:#3D372C;">気持ちまで、前向きに</div>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:12px;line-height:1.85;color:#544c41;margin:0 0 20px;">不安定な座面に座るだけで、インナーマッスルが自然と働き出す。<strong style="color:#3D372C;">「座るだけ」で効果がある</strong>から、誰でも続けられます。自己流では転倒のリスクも。だから完全個室でトレーナーが見守りながら、安全に導きます。</p>
+
+          <div style="flex:1;min-height:8px;"></div>
+
+          <!-- bottom CTA -->
+          <div style="background:#fff;border-radius:16px;padding:16px 22px;box-shadow:0 8px 24px -14px rgba(0,0,0,.2);margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:13px;font-weight:900;color:#2B2820;font-family:'Zen Maru Gothic',sans-serif;">まずは、体験レッスンから。</div>
+            <div style="display:flex;gap:10px;">
+              <a href="https://app.squareup.com/appointments/book/2yc5t3r1ctzbl9/L4VHHAHJM2DHY/start" class="reserve-badge">体験レッスンを予約する</a>
+              <a href="https://page.line.me/959subkh" class="line-badge">LINEで相談する</a>
+              <a href="https://www.instagram.com/ryunosukeinou/" class="ig-badge">@ryunosukeinou</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BACK ============ -->
+  <div>
+    <div class="pg-label"><span class="pg-tag">裏面</span>チラシ裏 ─ コース・お客様の声・トレーナー・アクセス</div>
+    <div class="pg-card" style="width:794px;">
+      <div style="width:794px;height:1123px;background:#FAF4EC;position:relative;font-family:'Zen Kaku Gothic New',sans-serif;color:#2B2820;overflow:hidden;display:flex;flex-direction:column;">
+
+        <div style="background:linear-gradient(120deg,#FFB789,#E8935C);padding:26px 40px;">
+          <div style="font-family:'Jost';font-size:11px;letter-spacing:.28em;color:#fff;margin-bottom:8px;">THREE COURSES</div>
+          <h2 style="margin:0;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:24px;color:#fff;">あなたに合った、通い方を。</h2>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;padding:0 40px;">
+
+          <!-- 3 courses -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;">
+            <div style="background:#fff;border:1px solid #FFB789;border-radius:16px;overflow:hidden;">
+              <div style="height:88px;">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bk-personal" style="width:100%;height:100%;" shape="rect" src="assets/photo-personal.png" credit="" placeholder="パーソナル指導シーン" hint-size="240px,88px"></x-import>
+              </div>
+              <div style="padding:14px 15px;">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                  <span style="background:#FFB789;color:#fff;font-size:9px;font-weight:700;padding:2px 8px;border-radius:999px;">一番人気</span>
+                </div>
+                <div style="font-size:13px;font-weight:900;color:#2B2820;margin-bottom:5px;">パーソナル<br>（完全個別）</div>
+                <div style="font-size:10.5px;line-height:1.7;color:#6E665A;">マンツーマンでじっくりと。男性のお客様もご利用いただけます。</div>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #E6F5C0;border-radius:16px;overflow:hidden;">
+              <div style="height:88px;">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bk-semi" style="width:100%;height:100%;" shape="rect" src="assets/gal-women.png" credit="" placeholder="セミパーソナル指導シーン" hint-size="240px,88px"></x-import>
+              </div>
+              <div style="padding:14px 15px;">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                  <span style="background:#6F8F1E;color:#fff;font-size:9px;font-weight:700;padding:2px 8px;border-radius:999px;">一人でも申込OK</span>
+                </div>
+                <div style="font-size:13px;font-weight:900;color:#2B2820;margin-bottom:5px;">セミパーソナル<br>（2名）</div>
+                <div style="font-size:10.5px;line-height:1.7;color:#6E665A;">知り合い同士でなくてもOK。人数にかかわらず一律料金。</div>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:16px;overflow:hidden;">
+              <div style="height:88px;">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bk-group" style="width:100%;height:100%;" shape="rect" src="assets/photo-group.png" credit="" placeholder="グループレッスンの様子" hint-size="240px,88px"></x-import>
+              </div>
+              <div style="padding:14px 15px;">
+                <div style="font-size:13px;font-weight:900;color:#2B2820;margin-bottom:5px;margin-top:19px;">グループ<br>レッスン</div>
+                <div style="font-size:10.5px;line-height:1.7;color:#6E665A;">ママ・シニア向け。仲間と楽しく体を動かす。地域のつながりも。</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- voices -->
+          <div class="eyebrow" style="margin:24px 0 12px;">CUSTOMER VOICES ─ 通ってくださる方の、声。</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 15px;">
+              <div style="color:#C7EB63;font-size:12px;margin-bottom:8px;">★★★★★</div>
+              <p style="font-size:11px;line-height:1.7;color:#3D372C;margin:0 0 10px;">トライアルを終えたあとの達成感が半端ないんです。</p>
+              <div style="font-size:10px;color:#6E665A;">M.K様・女性</div>
+            </div>
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 15px;">
+              <div style="color:#C7EB63;font-size:12px;margin-bottom:8px;">★★★★★</div>
+              <p style="font-size:11px;line-height:1.7;color:#3D372C;margin:0 0 10px;">ずっと気にしていたO脚が、本当に治りました。</p>
+              <div style="font-size:10px;color:#6E665A;">Y.S様・女性</div>
+            </div>
+            <div style="background:#fff;border:1px solid #FFE8D6;border-radius:14px;padding:16px 15px;">
+              <div style="color:#C7EB63;font-size:12px;margin-bottom:8px;">★★★★★</div>
+              <p style="font-size:11px;line-height:1.7;color:#3D372C;margin:0 0 10px;">産後どうしても履けなかったスカートが、本当に履けました！</p>
+              <div style="font-size:10px;color:#6E665A;">A.T様・40代女性</div>
+            </div>
+          </div>
+
+          <!-- trainer -->
+          <div class="eyebrow" style="margin:24px 0 12px;">YOUR TRAINER</div>
+          <div style="display:flex;gap:18px;align-items:center;">
+            <div style="width:110px;height:132px;border-radius:14px;overflow:hidden;flex-shrink:0;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bk-trainer" style="width:100%;height:100%;" shape="rect" src="assets/photo-trainer-portrait.png" credit="" placeholder="トレーナー ポートレート" hint-size="110px,132px"></x-import>
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;">
+                <div style="font-size:16px;font-weight:900;color:#2B2820;">伊能 竜之介</div>
+                <div style="font-family:'Jost';font-size:11px;letter-spacing:.1em;color:#6F8F1E;">RYUNOSUKE INO</div>
+              </div>
+              <p style="font-size:11px;line-height:1.8;color:#544c41;margin:0 0 8px;">群馬県出身／専修大学卒。約30年間サッカーに打ち込み「身体を操る技術」を体得。あざみ野商店街のメンバーとして街の健康づくりにも取り組む。</p>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <span class="tag" style="font-size:9.5px;padding:4px 10px;">延べ2,400回+の指導実績</span>
+                <span class="tag" style="font-size:9.5px;padding:4px 10px;">約30年のサッカー競技歴</span>
+                <span class="tag" style="font-size:9.5px;padding:4px 10px;">体幹トレーニング指導専門</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="flex:1;min-height:16px;"></div>
+
+          <!-- access + CTA -->
+          <div style="background:#2B2820;border-radius:18px;padding:22px 26px;margin-bottom:28px;">
+            <div style="display:flex;gap:26px;">
+              <div style="flex:1;">
+                <div style="font-size:10.5px;font-weight:700;color:#C7EB63;letter-spacing:.06em;margin-bottom:8px;">ACCESS</div>
+                <div style="font-size:13px;line-height:2;color:#F4F1E8;">
+                  神奈川県横浜市青葉区あざみ野<br>
+                  <span style="color:#9a9284;">［ 住所　　　　　　　　　　　］</span><br>
+                  最寄駅から徒歩　　分<br>
+                  <span style="color:#cfc7ba;">完全個室・完全予約制</span>
+                </div>
+                <div style="font-size:10px;color:#9a9284;margin-top:8px;">2026年8月 グランドオープン</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,.15);"></div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;">
+                <div style="font-size:12px;font-weight:900;color:#fff;">ご予約・お問合せ</div>
+                <a href="https://app.squareup.com/appointments/book/2yc5t3r1ctzbl9/L4VHHAHJM2DHY/start" class="reserve-badge">体験レッスンを予約する</a>
+                <a href="https://page.line.me/959subkh" class="line-badge">LINEで相談する</a>
+                <a href="https://www.instagram.com/ryunosukeinou/" class="ig-badge">@ryunosukeinou</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>
