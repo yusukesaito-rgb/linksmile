@@ -205,6 +205,23 @@ class Component extends DCLogic {
 <script>
 (async () => {
   if (!document.title || !document.title.trim()) document.title = "撮影構成案 7-16";
+  // rAF raced with a short timeout: inside a cross-origin iframe (PrintMode),
+  // rAF can be throttled or paused even while the tab is focused, which would
+  // hang the scroll loop and never reach print(). Same pattern as
+  // buildExportSettleScript (export/shared.ts).
+  var raf = function () {
+    return Promise.race([
+      new Promise(function (r) { requestAnimationFrame(r); }),
+      new Promise(function (r) { setTimeout(r, 50); }),
+    ]);
+  };
+  var t0 = performance.now();
+  var mark = function (phase) {
+    var ms = Math.round(performance.now() - t0);
+    console.info('[autoprint]', phase, ms + 'ms');
+    try { parent.postMessage({ __omelette_autoprint: { phase: phase, ms: ms } }, '*'); } catch (e) {}
+  };
+  mark('start');
   // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
   // author CSS) keep source-order precedence over the baseline.
   const baseCss = document.createElement('style');
@@ -251,18 +268,29 @@ class Component extends DCLogic {
     // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
     // accept stability while a dc-runtime placeholder is present.
     const isGeneric = settleRoot === document.body;
+    // A placeholder whose fetch failed (.sc-placeholder-error inside) keeps
+    // .sc-placeholder forever — don't wait on it. JS loop, not :has(), so an
+    // engine without :has() support can't throw out of the while and skip
+    // print() entirely.
+    var pendingPlaceholders = function () {
+      var all = settleRoot.querySelectorAll('.sc-placeholder'), n = 0;
+      for (var i = 0; i < all.length; i++)
+        if (!all[i].querySelector('.sc-placeholder-error')) n++;
+      return n;
+    };
     const deadline = Date.now() + 15000;
     let last = -1, stable = 0;
     while (Date.now() < deadline) {
       const n = weigh();
       const ready =
         (!isGeneric || document.readyState === 'complete') &&
-        !settleRoot.querySelector('.sc-placeholder');
+        pendingPlaceholders() === 0;
       if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
       last = n;
       await new Promise((r) => setTimeout(r, 250));
     }
   }
+  mark('settle-done' + (settleRoot ? ' (errs=' + settleRoot.querySelectorAll('.sc-placeholder-error').length + ' pending=' + pendingPlaceholders() + ')' : ''));
   // Project support.js may predate runtime default-seeding; push via bridge.
   if (isDc && window.__dcSetProps && window.__dcRootName) {
     try {
@@ -291,9 +319,10 @@ class Component extends DCLogic {
     const scroller = document.scrollingElement || document.documentElement;
     const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
     const step = window.innerHeight || 800;
-    for (let y = 0; y <= full; y += step) {
+    var scrollDeadline = Date.now() + 4000;
+    for (let y = 0; y <= full && Date.now() < scrollDeadline; y += step) {
       window.scrollTo(0, y);
-      await new Promise((r) => requestAnimationFrame(r));
+      await raf();
     }
     window.scrollTo(0, 0);
     await Promise.race([
@@ -310,7 +339,9 @@ class Component extends DCLogic {
       new Promise((r) => setTimeout(r, 4000)),
     ]);
   } catch (e) {}
-  try { await document.fonts.ready; } catch (e) {}
+  mark('scroll-done');
+  try { await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 3000))]); } catch (e) {}
+  mark('fonts-done');
   // Jump every animation to its end state so print() never captures a slide
   // mid-entrance. Ordering matters: the 0s-transition style must be live
   // BEFORE data-deck-active is set so attribute-keyed transitions don't
@@ -345,12 +376,29 @@ class Component extends DCLogic {
       }
     };
     sweep();
-    await new Promise((r) => requestAnimationFrame(r));
+    await raf();
     sweep();
-    await new Promise((r) => requestAnimationFrame(r));
+    await raf();
   } catch (e) {}
+  // A document that owns its print CSS (the doc-page starter injects the
+  // meta at runtime; hand-rolled print designs author it) gets no automatic
+  // page geometry and keeps its forced breaks: strip the injected default
+  // @page — write time cannot see a runtime-injected meta — skip the frame
+  // override below, and skip the fakepage-flattening further down. What
+  // still applies: the print baseline and break-hygiene defaults (no @page
+  // in either; low specificity, so the document's own print CSS wins) and
+  // the break-inside relaxation on >page elements (avoid on those cannot
+  // be honored whoever authored it).
+  var ownsPrint = !!document.querySelector('meta[name="omelette-owns-print" i]');
+  if (ownsPrint) {
+    var dst = document.querySelector('style[data-omelette-print-defaults]');
+    if (dst && dst.textContent) {
+      dst.textContent = dst.textContent.replace(/@page\b[^{}]*\{[^}]*\}/, '');
+    }
+  }
   // Size the PDF page to the rendered design unless the file opted into
-  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // standard paper via @page{size:letter|A4|…} or declared print ownership
+  // via the meta above. Decks own their own @page.
   // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
   // frame itself loses only margin — its padding is INSIDE the measured
   // rect and must stay, or content shifts and leaves a gap at bottom/right.
@@ -359,6 +407,13 @@ class Component extends DCLogic {
   var STAMP = true;
   var docEl = document.documentElement;
   var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+  // Name-presence check, case-insensitive — the same contract as the
+  // instant-PDF path's runtime check in deck-stage-export.ts. The name is
+  // a string literal here because that file interpolates this script into
+  // its print script, so importing a shared constant from it would be a
+  // cycle; measure.test.ts pins the literal so the two cannot drift apart
+  // silently.
+  var ownsPrint = !!document.querySelector('meta[name="omelette-owns-print" i]');
 
   var ds = document.querySelector('deck-stage');
   if (ds) {
@@ -371,7 +426,7 @@ class Component extends DCLogic {
     return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
       authored: frames.map(function(){return{width:true,height:true}}),
       deck: { width: dw, height: dh, slideCount: n, index: idx },
-      signals: { paperPage: false, pxPage: false } };
+      signals: { paperPage: false, pxPage: false, ownsPrint: ownsPrint } };
   }
 
   // Declared kind: a doc-page tag names the kind outright, so no signal
@@ -391,7 +446,7 @@ class Component extends DCLogic {
       frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
         width: sr.width, height: sr.height }],
       authored: [{ width: false, height: false }],
-      signals: { paperPage: false, pxPage: false } };
+      signals: { paperPage: false, pxPage: false, ownsPrint: ownsPrint } };
   }
   var paperPage = false, pxPage = false;
   var eachRule = function (fn) {
@@ -410,7 +465,7 @@ class Component extends DCLogic {
     if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
     if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
   });
-  var signals = { paperPage: paperPage, pxPage: pxPage };
+  var signals = { paperPage: paperPage, pxPage: pxPage, ownsPrint: ownsPrint };
 
   var pxVal = function (v) {
     var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
@@ -516,7 +571,7 @@ class Component extends DCLogic {
     authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
 })(); } catch (e) {}
   var frame = null;
-  if (__m && __m.kind === 'single-canvas') {
+  if (!ownsPrint && __m && __m.kind === 'single-canvas') {
     var f = __m.frames && __m.frames[0];
     if (f && f.width >= 200 && f.height >= 200) {
       frame = f;
@@ -557,7 +612,14 @@ class Component extends DCLogic {
           // colored box mid-sheet. Flow them, and (only when we own the page
           // inset) drop the redundant padding/background via the rule below.
           const cs = getComputedStyle(el);
-          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+          // An owns-print doc's forced breaks are intentional sheet
+          // boundaries, never fake-paged simulation — don't strip them.
+          // The break-inside relaxation above still applies: avoid on a
+          // >page element is impossible to honor whoever authored it.
+          if (
+            !ownsPrint &&
+            (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always')
+          ) {
             el.setAttribute('data-om-fakepage', '');
           }
         }
@@ -595,6 +657,7 @@ class Component extends DCLogic {
       if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
     }
   } catch (e) {}
+  mark('print-calling');
   setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
 })();
 </script>
