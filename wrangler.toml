@@ -2,4 +2,4 @@ name = "linksmile"
 compatibility_date = "2026-07-16"
 
 [assets]
-directory = "web/project"
+directory = "project"
