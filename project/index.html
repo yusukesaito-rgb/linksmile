@@ -37,12 +37,14 @@ input,select,textarea{font-family:inherit;}
   .ls-hero-card::before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,#fff 14%,rgba(255,255,255,.15));z-index:1;}
   .ls-hero-card-label{position:relative!important;z-index:2!important;white-space:normal!important;text-align:left!important;padding:26px 22px!important;font-size:24px!important;}
   .ls-compare-grid{grid-template-columns:1fr!important;gap:20px!important;}
-  .ls-compare-arrow{transform:rotate(90deg)!important;padding:4px!important;}
+  .ls-compare-grid>div{width:100%!important;max-width:100%!important;}
+  .ls-compare-grid>div:nth-child(2){display:none!important;}
   .ls-method-row{flex-direction:column!important;gap:20px!important;}
   .ls-method-row>div:first-child{flex:0 0 auto!important;width:100%!important;max-width:100%!important;}
   .ls-method-title{font-size:24px!important;}
   .ls-method-body{font-size:18px!important;max-width:100%!important;}
-  .ls-pricing-grid{grid-template-columns:1fr!important;max-width:420px!important;margin:0 auto!important;}
+  #ls-compare h2{font-size:28px!important;line-height:1.5!important;max-width:100%!important;}
+  .ls-pricing-grid{grid-template-columns:1fr!important;max-width:100%!important;margin:0!important;padding:0 16px!important;}
   .ls-voices-intro-grid{grid-template-columns:1fr!important;gap:28px!important;}
   .ls-voices-grid{grid-template-columns:1fr!important;}
   .ls-trainer-grid{grid-template-columns:1fr!important;}
@@ -58,8 +60,12 @@ input,select,textarea{font-family:inherit;}
   .ls-eyebrow{letter-spacing:.12em!important;font-size:12.5px!important;white-space:normal!important;}
   .ls-stats-grid{grid-template-columns:1fr!important;gap:16px!important;max-width:100%!important;}
   .ls-stats-num{font-size:56px!important;}
-  .ls-stats-item{padding:26px 24px!important;border-left:none!important;background:#FFF4EC!important;border-radius:20px!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;}
+  .ls-stats-item{padding:26px 24px!important;border-radius:20px!important;}
   .ls-stats-label{font-size:16px!important;margin-top:8px!important;}
+  #ls-pricing table th,#ls-pricing table td{padding:12px 10px!important;font-size:13px!important;}
+  #ls-pricing table th br{display:none!important;}
+  #ls-pricing table th{font-size:14px!important;}
+  #ls-access .promo-banner{flex-direction:column!important;gap:6px!important;}
 }
 </style>
 </helmet>
@@ -72,7 +78,7 @@ input,select,textarea{font-family:inherit;}
         <span style="display:inline-flex;align-items:center;gap:9px;font-family:'Jost',sans-serif;font-weight:300;font-size:28px;letter-spacing:.12em;color:{{ navInk }};transition:color .4s ease;white-space:nowrap;">
           <svg width="30" height="27" viewBox="0 0 84 74" style="flex-shrink:0;"><path d="M42 66 C42 48 16 48 16 30 C16 18 34 18 42 32" fill="none" stroke="#FF8A5A" stroke-width="7" stroke-linecap="round"></path><path d="M42 66 C42 48 68 48 68 30 C68 18 50 18 42 32" fill="none" stroke="#2FA79C" stroke-width="7" stroke-linecap="round"></path><circle cx="24" cy="40" r="8" fill="#FF8A5A"></circle><circle cx="60" cy="40" r="8" fill="#2FA79C"></circle></svg>Link &amp; Smile
         </span>
-        <span style="font-size:13.5px;letter-spacing:.1em;color:{{ navSub }};transition:color .4s ease;font-weight:500;white-space:nowrap;display:{{ subtitleDisplay }};">あざみ野・完全個室バランスボールスタジオ</span>
+        <span style="font-size:13.5px;letter-spacing:.1em;color:{{ navSub }};transition:color .4s ease;font-weight:500;white-space:nowrap;display:{{ subtitleDisplay }};">あざみ野・バランスボールスタジオ</span>
       </div>
       <nav class="ls-nav-desktop" style="display:flex;align-items:center;gap:16px;flex-wrap:nowrap;flex-shrink:1;min-width:0;">
         <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
@@ -104,7 +110,7 @@ input,select,textarea{font-family:inherit;}
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,40,32,.32) 0%,rgba(43,40,32,.12) 45%,rgba(43,40,32,.4) 100%);"></div>
     <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px;padding-bottom:12px;">
       <svg width="88" height="78" viewBox="0 0 84 74"><path d="M42 66 C42 48 16 48 16 30 C16 18 34 18 42 32" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"></path><path d="M42 66 C42 48 68 48 68 30 C68 18 50 18 42 32" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"></path><circle cx="24" cy="40" r="8" fill="#fff"></circle><circle cx="60" cy="40" r="8" fill="#fff"></circle></svg>
-      <div style="font-family:'Jost';font-weight:500;font-size:30px;letter-spacing:.14em;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.3);">LINK &amp; SMILE STUDIO</div>
+      <div style="font-family:'Jost';font-weight:500;font-size:30px;letter-spacing:.14em;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.3);">AZAMINO · PRIVATE STUDIO</div>
     </div>
   </section>
 
@@ -116,7 +122,7 @@ input,select,textarea{font-family:inherit;}
         <span class="ls-eyebrow" style="font-family:'Jost';font-size:15px;letter-spacing:.34em;color:#C2551E;font-weight:500;">AZAMINO ・ PRIVATE STUDIO</span>
         <span style="width:36px;height:1px;background:#D8CDB8;"></span>
       </div>
-      <h1 class="ls-hero-title" style="font-family:'Noto Serif JP',serif;font-size:50px;line-height:1.6;font-weight:600;color:#3D372C;margin:0;letter-spacing:.03em;"><span style="white-space: nowrap; display: block; font-size: 38px">一生モノの健康と、心からの笑顔を、</span><span style="white-space: nowrap; display: block; font-size: 38px">あざみ野から。</span></h1>
+      <h1 class="ls-hero-title" style="font-family:'Noto Serif JP',serif;font-size:50px;line-height:1.6;font-weight:600;color:#3D372C;margin:0;letter-spacing:.03em;"><span style="white-space: nowrap; display: block; font-size: 45px">鍛えるより、整える。</span><span style="white-space: nowrap; display: block; font-size: 45px">パーソナルバランスボールスタジオ</span></h1>
 
 
       <div class="ls-hero-icons" style="display:flex;justify-content:center;align-items:flex-start;gap:20px;max-width:1040px;margin:56px auto 0;flex-wrap:nowrap;">
@@ -141,24 +147,41 @@ input,select,textarea{font-family:inherit;}
     <div style="max-width:1100px;margin:0 auto;">
       <div style="max-width:720px;margin:0 auto 64px;text-align:center;">
         <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#E85F28;margin-bottom:18px;">WHY BALANCE BALL — 見えない不調の理由</div>
-        <h2 style="font-size: 38px; font-weight: 500; line-height: 1.55; margin: 0 0 20px; letter-spacing: .03em">その痛み、鍛え方が原因かも。</h2>
+        <h2 style="font-size: 45px; font-weight: 500; line-height: 1.55; margin: 0 0 20px; letter-spacing: .03em">その痛み、鍛え方が原因かも。</h2>
       </div>
-      <div class="ls-compare-grid" style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:center;">
-        <div style="background:#FFF4EC;border-radius:22px;padding:22px 22px 32px;text-align:center;">
-          <div style="width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-bottom:20px;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="pain-photo" shape="rect" placeholder="腰痛・肩こりに悩む方の写真" hint-size="100%,100%"></x-import></div>
-          <h3 style="font-size:21.5px;font-weight:500;color:#3D372C;margin:0 0 10px;">痛み・張りの慢性化</h3>
-          <p style="font-size:16.5px;line-height:1.9;color:#6E665A;margin:0;">決まった動きで表面の筋肉だけを酷使すると、負担が偏り、腰やお尻まわりに痛み・張りが出やすくなる。</p>
+      <div class="ls-compare-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;">
+        <div style="border-radius:20px;overflow:hidden;border:1px solid #E5E0D4;display:flex;flex-direction:column;">
+          <div style="background:#8A8272;color:#fff;font-size:19px;font-weight:700;text-align:center;padding:16px;letter-spacing:.02em;">決まった動きだけを続けると…</div>
+          <div style="padding:26px 28px 32px;display:flex;flex-direction:column;align-items:center;flex:1;">
+            <div style="width:100%;background:#F5F0E6;border-radius:14px;padding:18px 20px;display:flex;gap:18px;align-items:center;margin-bottom:24px;">
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:9px;background:#3D372C;color:#fff;font-size:15px;font-weight:600;padding:8px 12px;border-radius:8px;"><span>☑</span>同じ筋肉ばかり酷使</div>
+                <div style="display:flex;align-items:center;gap:9px;background:#3D372C;color:#fff;font-size:15px;font-weight:600;padding:8px 12px;border-radius:8px;"><span>☑</span>体幹の奥は使われない</div>
+                <div style="display:flex;align-items:center;gap:9px;background:#3D372C;color:#fff;font-size:15px;font-weight:600;padding:8px 12px;border-radius:8px;"><span>☑</span>フォームが崩れやすい</div>
+              </div>
+              <div style="flex:0 0 40%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="pain-photo" shape="rect" placeholder="腰痛・肩こりに悩む方の写真" hint-size="100%,100%"></x-import></div>
+            </div>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9a9082" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+            <div style="font-size:21px;font-weight:700;color:#3D372C;text-align:center;">続けられず、痛み・張りが慢性化</div>
+          </div>
         </div>
-        <div class="ls-compare-arrow" style="padding:0 28px;display:flex;align-items:center;justify-content:center;">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E85F28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-        </div>
-        <div style="background:#FFF4EC;border-radius:22px;padding:22px 22px 32px;text-align:center;border:2px solid #FF8A5A;">
-          <div style="width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-bottom:20px;background:url(assets/photo-inner-muscle-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);"></div>
-          <h3 style="font-size:21.5px;font-weight:500;color:#3D372C;margin:0 0 10px;">インナーマッスルで、根本から。</h3>
-          <p style="font-size:16.5px;line-height:1.9;color:#6E665A;margin:0;">不安定なボールの上で体幹の奥の筋肉が自然と働き、身体本来のバランスを取り戻す。腰痛・肩こり対策にもつながっていく。</p>
+        <div style="border-radius:20px;overflow:hidden;border:2px solid #FF8A5A;display:flex;flex-direction:column;">
+          <div style="background:#FF8A5A;color:#fff;font-size:19px;font-weight:700;text-align:center;padding:16px;letter-spacing:.02em;">LINK &amp; SMILE式 バランスボール</div>
+          <div style="padding:26px 28px 32px;display:flex;flex-direction:column;align-items:center;flex:1;">
+            <div style="width:100%;background:#FFF4EC;border-radius:14px;padding:18px 20px;display:flex;gap:18px;align-items:center;margin-bottom:24px;">
+              <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:9px;background:#E85F28;color:#fff;font-size:15px;font-weight:600;padding:8px 12px;border-radius:8px;"><span>☑</span>体幹の奥から自然と働く</div>
+                <div style="display:flex;align-items:center;gap:9px;background:#E85F28;color:#fff;font-size:15px;font-weight:600;padding:8px 12px;border-radius:8px;"><span>☑</span>正しいフォームを都度確認</div>
+                <div style="display:flex;align-items:center;gap:9px;background:#E85F28;color:#fff;font-size:15px;font-weight:600;padding:8px 12px;border-radius:8px;"><span>☑</span>本来のバランスを取り戻す</div>
+              </div>
+              <div style="flex:0 0 40%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:url(assets/photo-inner-muscle-v2-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);"></div>
+            </div>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E85F28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+            <div style="font-size:21px;font-weight:700;color:#C2551E;text-align:center;">無理なく続けられて、根本から整う</div>
+          </div>
         </div>
       </div>
-      <p style="font-size:15px;color:#9a9082;margin:28px auto 0;text-align:center;max-width:600px;">※ 効果には個人差があります。特定の症状の改善・治療を保証するものではありません。</p>
+      <p style="font-size:15px;color:#9a9082;margin:28px auto 0;text-align:center;max-width:600px;white-space:nowrap;">※ 効果には個人差があります。特定の症状の改善・治療を保証するものではありません。</p>
     </div>
   </section>
 
@@ -167,45 +190,45 @@ input,select,textarea{font-family:inherit;}
     <div style="max-width:1100px;margin:0 auto;">
       <div style="max-width:720px;margin:0 auto 56px;text-align:center;">
         <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#E85F28;margin-bottom:18px;">OUR METHOD — 解決のかたち</div>
-        <h2 style="font-size: 38px; font-weight: 500; line-height: 1.5; margin: 0 0 20px; letter-spacing: .03em; white-space: nowrap">骨盤が整うと、不調の連鎖がほどけていく。</h2>
-        <p style="font-size: 22px; line-height: 2; color: #544c41; margin: 0">骨盤が整うと姿勢が変わり、<strong style="color:#3D372C;font-weight:500;">腰痛・肩こりがやわらぎ、気持ちまで前向きに</strong>。バランスボールと自重で、土台から整えます。</p>
+        <h2 style="font-size: 45px; font-weight: 500; line-height: 1.5; margin: 0 0 20px; letter-spacing: .03em">骨盤が整うと、不調の連鎖が<br>ほどけていく。</h2>
+        <p style="font-size: 20px; line-height: 2; color: #544c41; margin: 0">骨盤が整うと姿勢が変わり、<strong style="color:#3D372C;font-weight:500;">腰痛・肩こりがやわらぎ、気持ちまで前向きに</strong>。バランスボールと自重で、土台から整えます。</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:92px;">
         <div class="ls-method-row" style="display:flex;align-items:center;gap:64px;">
-          <div style="flex:0 0 44%;position:relative;">
+          <div style="flex:0 0 60%;position:relative;">
             <div style="position:absolute;width:200px;height:200px;background:#2FA79C;opacity:.22;border-radius:50%;top:-28px;bottom:auto;left:-28px;right:auto;z-index:0;"></div>
             <div style="position:relative;z-index:1;aspect-ratio:4/3;background:url(assets/photo-pelvis-reset-2-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);border-radius:63% 37% 54% 46% / 55% 45% 55% 45%;box-shadow:0 26px 54px -26px rgba(61,55,44,.4);"></div>
           </div>
           <div style="flex:1;">
             <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.28em;color:#E85F28;font-weight:500;margin-bottom:14px;">STEP 01</div>
-            <h3 class="ls-method-title" style="font-size: 22px; font-weight: 500; color: #3D372C; margin: 0 0 14px; letter-spacing: .02em">骨盤が、正しい位置に戻る</h3>
-            <p class="ls-method-body" style="font-size: 18px; line-height: 2; color: #6E665A; margin: 0; max-width: 400px">バランスボールと自重で、ゆがんだ土台をリセット。</p>
+            <h3 class="ls-method-title" style="font-size: 29px; font-weight: 500; color: #3D372C; margin: 0 0 14px; letter-spacing: .02em">骨盤が、正しい位置に戻る</h3>
+            <p class="ls-method-body" style="font-size:19px;line-height:2;color:#6E665A;margin:0;max-width:400px;">バランスボールと自重で、ゆがんだ土台をリセット。</p>
           </div>
         </div>
         <div class="ls-method-row" style="display:flex;flex-direction:row-reverse;align-items:center;gap:64px;">
-          <div style="flex:0 0 44%;position:relative;">
+          <div style="flex:0 0 60%;position:relative;">
             <div style="position:absolute;width:200px;height:200px;background:#2FA79C;opacity:.22;border-radius:50%;top:auto;bottom:-28px;left:auto;right:-28px;z-index:0;"></div>
             <div style="position:relative;z-index:1;aspect-ratio:4/3;background:url(assets/photo-personal-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);border-radius:37% 63% 46% 54% / 45% 55% 45% 55%;box-shadow:0 26px 54px -26px rgba(61,55,44,.4);"></div>
           </div>
           <div style="flex:1;">
             <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.28em;color:#E85F28;font-weight:500;margin-bottom:14px;">STEP 02</div>
-            <h3 class="ls-method-title" style="font-size:28px;font-weight:500;color:#3D372C;margin:0 0 14px;letter-spacing:.02em;">背骨が整い、姿勢が変わる</h3>
+            <h3 class="ls-method-title" style="font-size: 29px; font-weight: 500; color: #3D372C; margin: 0 0 14px; letter-spacing: .02em">背骨が整い、姿勢が変わる</h3>
             <p class="ls-method-body" style="font-size:19px;line-height:2;color:#6E665A;margin:0;max-width:400px;">自然なS字カーブが戻り、立ち姿・座り姿が美しく。</p>
           </div>
         </div>
         <div class="ls-method-row" style="display:flex;align-items:center;gap:64px;">
-          <div style="flex:0 0 44%;position:relative;">
+          <div style="flex:0 0 60%;position:relative;">
             <div style="position:absolute;width:200px;height:200px;background:#2FA79C;opacity:.22;border-radius:50%;top:-28px;bottom:auto;left:-28px;right:auto;z-index:0;"></div>
             <div style="position:relative;z-index:1;aspect-ratio:4/3;background:url(assets/photo-method-closeup-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);border-radius:63% 37% 54% 46% / 55% 45% 55% 45%;box-shadow:0 26px 54px -26px rgba(61,55,44,.4);"></div>
           </div>
           <div style="flex:1;">
             <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.28em;color:#E85F28;font-weight:500;margin-bottom:14px;">STEP 03</div>
-            <h3 class="ls-method-title" style="font-size:28px;font-weight:500;color:#3D372C;margin:0 0 14px;letter-spacing:.02em;">腰痛・肩こりがやわらぐ</h3>
+            <h3 class="ls-method-title" style="font-size: 30px; font-weight: 500; color: #3D372C; margin: 0 0 14px; letter-spacing: .02em">腰痛・肩こりがやわらぐ</h3>
             <p class="ls-method-body" style="font-size:19px;line-height:2;color:#6E665A;margin:0;max-width:400px;">体への負担が減り、呼吸も深くなっていく。</p>
           </div>
         </div>
         <div class="ls-method-row" style="display:flex;flex-direction:row-reverse;align-items:center;gap:64px;">
-          <div style="flex:0 0 44%;position:relative;">
+          <div style="flex:0 0 60%;position:relative;">
             <div style="position:absolute;width:200px;height:200px;background:#2FA79C;opacity:.22;border-radius:50%;top:auto;bottom:-28px;left:auto;right:-28px;z-index:0;"></div>
             <div style="position:relative;z-index:1;aspect-ratio:4/3;background:url(assets/gal-women-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);border-radius:37% 63% 46% 54% / 45% 55% 45% 55%;box-shadow:0 26px 54px -26px rgba(61,55,44,.4);"></div>
           </div>
@@ -225,7 +248,11 @@ input,select,textarea{font-family:inherit;}
       <div style="text-align:center;margin-bottom:38px;">
         <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#FF8A5A;margin-bottom:18px;">THREE COURSES &amp; PRICE</div>
         <h2 style="font-size: 38px; font-weight: 500; letter-spacing: .04em; margin: 0 0 14px">あなたに合った、通い方を。</h2>
-        <p style="font-size: 22px; color: #6E665A; margin: 0 auto; max-width: 620px">目的やライフスタイルに合わせて、選べる3つの通い方。完全個室・完全予約制。表示はすべて税込、入会金は<strong style="color:#3D372C;font-weight:500;">0円</strong>です。</p>
+      </div>
+
+      <div style="background:#FFF4EC;border:1px solid #FFDEC7;border-radius:14px;padding:14px 22px;text-align:center;margin-bottom:20px;">
+        <span style="font-size:16.5px;color:#3D372C;font-weight:500;"><span style="background:#F5C542;padding:2px 8px;border-radius:5px;">入会金</span> ¥30,000 → 体験当日のご入会で <strong style="color:#C2551E;font-size:19px;">¥0</strong></span>
+        <span style="font-size:14.5px;color:#9a9082;margin-left:8px;">※ 予告なく終了する場合がございます</span>
       </div>
 
       <div style="background:#fff;border:1px solid #FFDEC7;border-radius:20px;padding:24px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;margin-bottom:32px;">
@@ -241,56 +268,43 @@ input,select,textarea{font-family:inherit;}
         <a onClick="{{ toReserve }}" style="font-size:17px;font-weight:500;color:#fff;background:#FF8A5A;padding:13px 28px;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform .2s ease;white-space:nowrap;" style-hover="transform:translateY(-2px);">{{ trialPlan.cta }}</a>
       </div>
 
-      <div class="ls-pricing-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-        <sc-for list="{{ courses }}" as="g" hint-placeholder-count="3">
-          <div style="background:#fff;border:1px solid {{ g.border }};border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease;position:relative;" style-hover="transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(120,134,80,.5);">
-            <div style="position:relative;aspect-ratio:16/10;background:{{ g.bg }};background-size:cover;background-position:center;">
-              <div style="position:absolute;left:16px;top:14px;font-size:15.5px;letter-spacing:.06em;color:#3D372C;background:rgba(255,255,255,.9);padding:6px 14px;border-radius:999px;font-weight:500;">{{ g.tag }}</div>
-              <sc-if value="{{ g.photoNote }}" hint-placeholder-val="{{ false }}">
-                <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;font-family:'Jost',monospace;font-size:13.5px;letter-spacing:.06em;color:#fff;background:linear-gradient(transparent,rgba(45,42,30,.5));">{{ g.photoNote }}</div>
-              </sc-if>
-            </div>
-            <div style="padding:28px 26px 30px;flex:1;display:flex;flex-direction:column;">
-              <sc-if value="{{ g.badge }}" hint-placeholder-val="{{ false }}">
-                <div style="display:inline-block;align-self:flex-start;background:#FF8A5A;color:#fff;font-size:14px;font-weight:500;letter-spacing:.04em;padding:4px 12px;border-radius:999px;margin-bottom:10px;">{{ g.badge }}</div>
-              </sc-if>
-              <h3 style="font-size:24px;font-weight:500;margin:0 0 10px;letter-spacing:.03em;">{{ g.title }}</h3>
-              <p style="font-size:17.5px;line-height:1.95;color:#544c41;margin:0 0 18px;">{{ g.body }}</p>
+      <div style="overflow-x:auto;border-radius:16px;border:1px solid #FFDEC7;background:#fff;">
+        <table style="width:100%;border-collapse:collapse;background:#fff;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:20px 24px;font-size:17px;font-weight:600;color:#3D372C;border-bottom:1px solid #FFDEC7;background:#fff;">プラン</th>
+              <th style="text-align: center; padding: 20px 24px; font-size: 25px; font-weight: 600; color: #fff; background: #FF8A5A; border-bottom: 1px solid #FFDEC7">パーソナル<br><span style="font-size: 20px; font-weight: 400">マンツーマン</span></th>
+              <th style="text-align: center; padding: 20px 24px; font-size: 25px; font-weight: 600; color: #fff; background: #2FA79C; border-bottom: 1px solid #FFDEC7">セミパーソナル<br><span style="font-size: 20px; font-weight: 400">2名以上</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:22px 24px;font-size:18px;color:#3D372C;border-bottom:1px solid #FFEADB;background:#fff;"><b>月4プラン<br></b></td>
+              <td style="padding:22px 24px;text-align:center;border-bottom:1px solid #FFEADB;background:#fff;"><div style="font-family:'Jost';font-size:28px;font-weight:700;color:#3D372C;">¥12,000<span style="font-size:15px;font-weight:400;color:#6E665A;">／回</span></div><div style="font-size:16px;font-weight:600;color:#3D372C;margin-top:6px;">月額目安 ¥48,000</div></td>
+              <td style="padding:22px 24px;text-align:center;border-bottom:1px solid #FFEADB;background:#fff;"><div style="font-family:'Jost';font-size:28px;font-weight:700;color:#3D372C;">¥8,500<span style="font-size:15px;font-weight:400;color:#6E665A;">／回</span></div></td>
+            </tr>
+            <tr style="background:#FFF9E9;box-shadow:inset 0 0 0 2px #F5C542;position:relative;">
+              <td style="padding:22px 24px;font-size:18px;font-weight:500;color:#3D372C;border-bottom:1px solid #F0E0A0;border-left:4px solid #F5C542;"><b>3ヶ月継続</b><br><span style="display: inline-block; font-size: 13px; font-weight: 700; color: #3D372C; background: rgb(245, 197, 66); padding: 3px 11px; border-radius: 999px; margin-top: 6px; white-space: nowrap;">一番人気</span></td>
+              <td style="padding:22px 24px;text-align:center;border-bottom:1px solid #F0E0A0;"><div style="font-family:'Jost';font-size:32px;font-weight:700;color:#146B63;">¥8,500<span style="font-size:15px;font-weight:400;color:#6E665A;">／回</span></div><div style="font-size:16px;font-weight:600;color:#3D372C;margin-top:6px;">月額目安 ¥15,000</div></td>
+              <td style="padding:22px 24px;text-align:center;border-bottom:1px solid #F0E0A0;"><div style="font-family:'Jost';font-size:32px;font-weight:700;color:#146B63;">¥6,000<span style="font-size:15px;font-weight:400;color:#6E665A;">／回</span></div></td>
+            </tr>
+            <tr>
+              <td style="padding:22px 24px;font-size:18px;color:#3D372C;background:#fff;"><b>半年継続</b></td>
+              <td style="padding:22px 24px;text-align:center;background:#fff;"><div style="font-family:'Jost';font-size:28px;font-weight:700;color:#3D372C;">¥7,500<span style="font-size:15px;font-weight:400;color:#6E665A;">／回</span></div><div style="font-size:16px;font-weight:600;color:#3D372C;margin-top:6px;">月額目安 ¥30,000</div></td>
+              <td style="padding:22px 24px;text-align:center;background:#fff;"><div style="font-family:'Jost';font-size:28px;font-weight:700;color:#3D372C;">¥5,500<span style="font-size:15px;font-weight:400;color:#6E665A;">／回</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
 
-              <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:16px;">
-                <span style="font-size:17.5px;color:{{ g.priceColor }};">{{ g.prefix }}</span>
-                <span style="font-family:'Jost';font-size:37px;font-weight:400;color:{{ g.priceColor }};line-height:1;">{{ g.price }}</span>
-                <span style="font-size:16px;color:#6E665A;">{{ g.unit }}</span>
-              </div>
-
-              <sc-if value="{{ g.tiers.length }}" hint-placeholder-val="{{ false }}">
-                <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;">
-                  <sc-for list="{{ g.tiers }}" as="t" hint-placeholder-count="3">
-                    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:6px;font-size:15px;background:#FFF4EC;border:1px solid #FFDEC7;border-radius:9px;padding:7px 10px;">
-                      <div><span style="font-weight:500;color:#3D372C;">{{ t.label }}</span><span style="color:#9a9082;margin-left:5px;">{{ t.sub }}</span></div>
-                      <div style="font-weight:500;color:#C2551E;white-space:nowrap;">{{ t.price }}</div>
-                    </div>
-                  </sc-for>
-                </div>
-              </sc-if>
-
-              <div style="height:1px;background:#FFDEC7;margin:0 0 16px;"></div>
-              <div style="display:flex;flex-direction:column;gap:11px;flex:1;">
-                <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3">
-                  <div style="display:flex;align-items:flex-start;gap:9px;font-size:16px;color:#544c41;line-height:1.6;"><span style="color:#FF8A5A;margin-top:2px;flex-shrink:0;">✓</span>{{ it }}</div>
-                </sc-for>
-              </div>
-
-              <sc-if value="{{ g.note }}" hint-placeholder-val="{{ false }}">
-                <div style="font-size:16px;color:#E85F28;letter-spacing:.03em;border-top:1px dashed #D2F0EC;padding-top:14px;margin-top:16px;">{{ g.note }}</div>
-              </sc-if>
-            </div>
-          </div>
-        </sc-for>
+      <div style="margin-top:24px;background:#fff;border:1px solid #FFDEC7;border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;">
+        <div><div style="font-size:17px;font-weight:600;color:#3D372C;">グループレッスン</div><div style="font-size:15px;color:#6E665A;margin-top:2px;">ママ・シニア向けの教室。料金・開催日は公式LINEでご案内しています。</div></div>
+        <a onClick="{{ toReserve }}" style="font-size:16px;font-weight:500;color:#fff;background:#FF8A5A;padding:11px 22px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;">詳しくはLINEで見る</a>
       </div>
 
-      <div style="margin-top:30px;background:#ffffff;border:1px solid #FFDEC7;border-radius:16px;padding:20px 26px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;text-align:center;">
-        <span style="font-size:17px;color:#544c41;letter-spacing:.02em;">※ 男性のお客様もご利用いただけます。お気軽にご相談ください。</span>
+      <div style="margin-top:30px;text-align:center;">
+        <span style="font-size:17px;color:#544c41;letter-spacing:.02em;">※ 表示はすべて税込です。レッスン時間は1回60分（体験レッスンも同様）。男性のお客様もご利用いただけます。</span>
       </div>
     </div>
   </section>
@@ -303,13 +317,30 @@ input,select,textarea{font-family:inherit;}
         <div>
           <div class="ls-eyebrow" style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#E85F28;margin-bottom:18px;">CUSTOMER VOICES</div>
           <h2 style="font-size: 38px; font-weight: 500; letter-spacing: .04em; margin: 0 0 14px; line-height: 1.4">通ってくださる方の、声。</h2>
-          <p style="font-size: 22px; color: #6E665A; margin: 0; max-width: 420px">トライアル（2ヶ月）を終えた方の声を、実際のレッスン風景とあわせてご紹介します。</p>
+          <p style="font-size: 20px; color: #6E665A; margin: 0; max-width: 420px">トライアル（2ヶ月）を終えた方の声を、実際のレッスン風景とあわせてご紹介します。</p>
         </div>
         <div style="position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:url(assets/gal-women-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);box-shadow:0 26px 54px -26px rgba(61,55,44,.4);">
           <div style="position:absolute;left:0;bottom:0;width:100%;padding:16px 20px;font-size:14px;color:#fff;background:linear-gradient(transparent,rgba(45,42,30,.55));">実際のレッスン風景</div>
         </div>
       </div>
-      <div class="ls-voices-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:42px;">
+      <!-- before/after -->
+      <div class="ls-ba-wrap" style="background:#FFF4EC;border-radius:28px;padding:44px;margin-bottom:48px;">
+        <div style="text-align:center;margin-bottom:36px;">
+          <h3 style="font-size:43px;font-weight:700;letter-spacing:.03em;margin:0 0 16px;line-height:1.45;">「産後、どうしても戻らなかった下腹が…」</h3>
+          <p style="font-size: 20px; color: #C2551E; margin: 0 auto; max-width: 600px; font-weight: 500; font-family: 'Zen Maru Gothic',sans-serif">体重を落とすのではなく、骨盤を整える。56日間での変化です。</p>
+        </div>
+        <div class="ls-ba-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1100px;margin:0 auto;">
+          <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:468/655;background:url(assets/ba-before-crop-noface-web.jpg) center top/cover no-repeat, #ECEAE4;">
+            <div class="ls-ba-badge" style="position:absolute;left:12px;top:12px;font-family:'Jost';font-size:14px;letter-spacing:.14em;color:#fff;background:rgba(45,42,30,.55);padding:4px 12px;border-radius:999px;white-space:nowrap;">BEFORE</div>
+          </div>
+          <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:468/655;background:url(assets/ba-after-crop-noface-web.jpg) center top/cover no-repeat, #ECEAE4;">
+            <div class="ls-ba-badge" style="position:absolute;left:12px;top:12px;font-family:'Jost';font-size:14px;letter-spacing:.14em;color:#3D372C;background:rgba(255,255,255,.92);padding:4px 12px;border-radius:999px;white-space:nowrap;">AFTER ／ 約2ヶ月</div>
+          </div>
+        </div>
+        <p style="font-size:15px;color:#9a9082;margin:16px 0 0;text-align:center;">※ ご本人の許可を得て掲載しています。効果には個人差があります。</p>
+      </div>
+
+      <div class="ls-voices-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
         <sc-for list="{{ voices }}" as="v" hint-placeholder-count="3">
           <div style="background:#fff;border:1px solid #FFDEC7;border-radius:22px;padding:32px 28px;display:flex;flex-direction:column;">
             <div style="display:flex;gap:4px;margin-bottom:16px;">
@@ -327,23 +358,6 @@ input,select,textarea{font-family:inherit;}
           </div>
         </sc-for>
       </div>
-
-      <!-- before/after -->
-      <div class="ls-ba-wrap" style="background:#FFF4EC;border-radius:28px;padding:44px;">
-        <div style="text-align:center;margin-bottom:36px;">
-          <h3 style="font-size:43px;font-weight:700;letter-spacing:.03em;margin:0 0 16px;line-height:1.45;">「産後、どうしても戻らなかった下腹が…」</h3>
-          <p style="font-size:21.5px;color:#C2551E;margin:0 auto;max-width:600px;font-weight:500;font-family:'Zen Maru Gothic',sans-serif;">体重を落とすのではなく、骨盤を整える。約2ヶ月での変化です。</p>
-        </div>
-        <div class="ls-ba-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:560px;margin:0 auto;">
-          <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:468/655;background:url(assets/ba-before-crop-noface-web.jpg) center top/cover no-repeat, #ECEAE4;">
-            <div class="ls-ba-badge" style="position:absolute;left:12px;top:12px;font-family:'Jost';font-size:14px;letter-spacing:.14em;color:#fff;background:rgba(45,42,30,.55);padding:4px 12px;border-radius:999px;white-space:nowrap;">BEFORE</div>
-          </div>
-          <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:468/655;background:url(assets/ba-after-crop-noface-web.jpg) center top/cover no-repeat, #ECEAE4;">
-            <div class="ls-ba-badge" style="position:absolute;left:12px;top:12px;font-family:'Jost';font-size:14px;letter-spacing:.14em;color:#3D372C;background:rgba(255,255,255,.92);padding:4px 12px;border-radius:999px;white-space:nowrap;">AFTER ／ 約2ヶ月</div>
-          </div>
-        </div>
-        <p style="font-size:15px;color:#9a9082;margin:16px 0 0;text-align:center;">※ ご本人の許可を得て掲載しています。効果には個人差があります。</p>
-      </div>
     </div>
   </section>
 
@@ -353,7 +367,7 @@ input,select,textarea{font-family:inherit;}
     <div style="position:relative;max-width:760px;margin:0 auto;text-align:center;">
       <div style="font-family:'Zen Maru Gothic',sans-serif;font-size:27px;color:#fff;font-weight:500;margin-bottom:16px;letter-spacing:.04em;">「ここに来ると、自然と笑顔になれる。」</div>
       <h2 style="font-size:44px;font-weight:500;color:#fff;letter-spacing:.04em;margin:0 0 20px;line-height:1.45;">まずは、体験レッスンから。</h2>
-      <p style="font-size:19.5px;color:rgba(255,255,255,.95);line-height:2.05;margin:0 auto 40px;max-width:460px;">ご予約は<strong style="font-weight:500;">予約フォーム</strong>または<strong style="font-weight:500;">公式LINE</strong>から。完全予約制のため、お早めに。</p>
+      <p style="font-size: 20px; color: rgba(255,255,255,.95); line-height: 2.05; margin: 0 auto 40px; max-width: 460px">ご予約は<strong style="font-weight:500;">予約フォーム</strong>または<strong style="font-weight:500;">公式LINE</strong>から。完全予約制のため、お早めに。</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
         <a onClick="{{ toReserve }}" style="font-size:19px;font-weight:500;color:#3D372C;background:#fff;padding:17px 38px;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform .2s ease;" style-hover="transform:translateY(-2px);">体験レッスンを予約する</a>
         <a onClick="{{ toLine }}" style="display:inline-flex;align-items:center;gap:10px;font-size:19px;font-weight:500;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);padding:17px 30px;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform .2s ease;" style-hover="transform:translateY(-2px);"><span style="width:9px;height:9px;border-radius:50%;background:#06C755;"></span>LINEで相談する</a>
@@ -366,14 +380,43 @@ input,select,textarea{font-family:inherit;}
   <section data-screen-label="実績数字" style="background:#fff;padding:104px 44px;">
     <div style="max-width:1180px;margin:0 auto;text-align:center;">
       <div class="ls-eyebrow" style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#FF8A5A;margin-bottom:18px;">TRACK RECORD</div>
-      <h2 style="font-weight: 500; letter-spacing: .04em; margin: 0 0 64px; line-height: 1.6; font-size: 38px">あざみ野で丸2年、積み重ねてきた信頼。</h2>
-      <div class="ls-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:left;max-width:820px;margin:0 auto;">
-        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
-          <div class="ls-stats-item" style="padding:8px 30px;border-left:1px solid #FFDEC7;">
-            <div class="ls-stats-num" style="font-family:'Jost';font-weight:700;font-size:72px;color:#FF8A5A;line-height:1;letter-spacing:.01em;white-space:nowrap;display:flex;align-items:baseline;justify-content:center;">{{ s.num }}<span style="font-size:20px;font-weight:600;color:#6E665A;margin-left:6px;">{{ s.unit }}</span></div>
-            <div class="ls-stats-label" style="font-size:17px;color:#6E665A;font-weight:500;margin-top:18px;letter-spacing:.06em;">{{ s.label }}</div>
+      <h2 style="font-weight: 500; letter-spacing: .04em; margin: 0 0 64px; line-height: 1.6; font-size: 38px">あざみ野で積み重ねてきた信頼。</h2>
+      <div class="ls-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:980px;margin:0 auto;">
+        <div class="ls-stats-item" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#FFF4EC;border-radius:24px;padding:24px 24px;">
+          <div style="font-size:17px;font-weight:600;color:#3D372C;margin-bottom:22px;min-height:1.3em;display:flex;align-items:center;">ご指導させていただいた方</div>
+          <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:20px;">
+            <sc-for list="{{ peopleIcons }}" as="p" hint-placeholder-count="18">
+              <div style="width:16px;display:flex;flex-direction:column;align-items:center;">
+                <div style="width:11px;height:11px;border-radius:50%;background:{{ p.color }};margin-bottom:2px;"></div>
+                <div style="width:16px;height:13px;border-radius:8px 8px 0 0;background:{{ p.color }};"></div>
+              </div>
+            </sc-for>
           </div>
-        </sc-for>
+          <div class="ls-stats-num" style="font-family:'Jost';font-weight:700;font-size:60px;color:#2FA79C;line-height:1;letter-spacing:.01em;white-space:nowrap;display:flex;align-items:baseline;justify-content:center;">280<span style="font-size:19px;font-weight:600;color:#6E665A;margin-left:6px;">名+</span></div>
+        </div>
+
+        <div class="ls-stats-item" style="display:flex;flex-direction:column;align-items:center;text-align:center;background:#FFF4EC;border-radius:24px;padding:32px 24px;">
+          <div style="font-size:17px;font-weight:600;color:#3D372C;margin-bottom:22px;min-height:1.3em;display:flex;align-items:center;">男女比率</div>
+          <div style="width:130px;height:130px;border-radius:50%;background:conic-gradient(#2FA79C 0% 20%, #FF8A5A 20% 100%);display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+            <div style="width:88px;height:88px;border-radius:50%;background:#FFF4EC;"></div>
+          </div>
+          <div style="display:flex;gap:18px;font-size:15px;font-weight:500;color:#544c41;">
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#2FA79C;"></span>男性 2割</span>
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#FF8A5A;"></span>女性 8割</span>
+          </div>
+        </div>
+
+        <div class="ls-stats-item" style="display:flex;flex-direction:column;align-items:center;text-align:center;background:#FFF4EC;border-radius:24px;padding:32px 24px;">
+          <div style="font-size:17px;font-weight:600;color:#3D372C;margin-bottom:22px;">年代別割合</div>
+          <div style="width:130px;height:130px;border-radius:50%;background:conic-gradient(#D8CDB8 0% 18.9%, #2FA79C 18.9% 53.9%, #FF8A5A 53.9% 77.9%, #E4DCC9 77.9% 88.7%, #ECE6D8 88.7% 100%);margin-bottom:18px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;font-size:15px;font-weight:500;color:#544c41;text-align:left;">
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#D8CDB8;flex-shrink:0;"></span>60代 18.9%</span>
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#2FA79C;flex-shrink:0;"></span><strong style="color:#146B63;">50代 35%</strong></span>
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#FF8A5A;flex-shrink:0;"></span><strong style="color:#C2551E;">40代 24.0%</strong></span>
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#E4DCC9;flex-shrink:0;"></span>30代 10.8%</span>
+            <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#ECE6D8;flex-shrink:0;"></span>その他 11.3%</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -422,12 +465,15 @@ input,select,textarea{font-family:inherit;}
       <div style="text-align:center;margin-bottom:72px;">
         <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#C2551E;margin-bottom:18px;">COMMUNITY &amp; SMILES</div>
         <h2 style="font-size: 38px; font-weight: 500; letter-spacing: .04em; margin: 0 0 12px">地域の皆様と重ねてきた、たくさんの笑顔。</h2>
-        <p style="font-size:19.5px;color:#5b6440;margin:0 auto;max-width:600px;">2回連続で20名以上が集う回も。地域に根ざした、確かなつながり。</p>
+        <p style="font-size: 19px; color: #5b6440; margin: 0 auto; max-width: 600px">2回連続で20名以上が集う回も。地域に根ざした、確かなつながり。</p>
       </div>
       <div class="ls-gallery-grid" style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:16px;">
         <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
           <div style="position:relative;border-radius:18px;overflow:hidden;background:{{ g.bg }};background-size:cover;background-position:center;grid-column:{{ g.col }};grid-row:{{ g.row }};box-shadow:0 16px 34px -22px rgba(61,55,44,.4);transition:transform .35s ease;" style-hover="transform:scale(1.02);"></div>
         </sc-for>
+      </div>
+      <div style="text-align:center;margin-top:18px;">
+        <a onClick="{{ toLine }}" style="display:inline-block;font-size:16px;font-weight:500;color:#fff;background:#FF8A5A;padding:11px 22px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;">グループレッスンの詳細はLINEで</a>
       </div>
     </div>
   </section>
@@ -445,6 +491,18 @@ input,select,textarea{font-family:inherit;}
       </div>
     </div>
   </div>
+
+  <!-- ============ ACCESS ============ -->
+  <section id="ls-access" data-screen-label="アクセス" style="background:#F5F0E6;padding:80px 44px;">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#E85F28;margin-bottom:18px;">ACCESS</div>
+      <h2 style="font-size:32px;font-weight:500;letter-spacing:.03em;margin:0 0 28px;">アクセス</h2>
+      <div style="border-radius:20px;overflow:hidden;aspect-ratio:16/9;margin-bottom:28px;box-shadow:0 20px 44px -24px rgba(61,55,44,.3);">
+        <image-slot id="access-map" shape="rect" style="width:100%;height:100%;" placeholder="地図（Googleマップ埋め込み等）"></image-slot>
+      </div>
+      <p style="font-size:19px;line-height:1.9;color:#3D372C;margin:0;">〒225-0011<br>神奈川県横浜市青葉区あざみ野2-9-10 野本ビル406</p>
+    </div>
+  </section>
 
   <!-- ============ FOOTER ============ -->
   <footer style="background:#2B2820;color:#cfc7ba;padding:70px 44px 96px;">
@@ -547,10 +605,12 @@ class Component extends DCLogic {
         { label: 'トレーナー', go: go('ls-trainer') },
       ],
 
+      peopleIcons: Array.from({length: 18}, (_, i) => ({ color: i % 3 === 0 ? '#FF8A5A' : (i % 3 === 1 ? '#2FA79C' : '#E85F28') })),
+
       stats: [
-        { num: '280', unit: '名+', label: 'ご指導させていただいた方' },
-        { num: '2,400', unit: '回+', label: '延べ指導回数' },
-        { num: '60', unit: '名', label: '1日のイベント最大集客' },
+        { num: '280', unit: '名+', label: 'ご指導させていただいた方', icon: React.createElement('svg', {width:30,height:30,viewBox:'0 0 24 24',fill:'none',stroke:'#FF8A5A',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'}, React.createElement('path',{d:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'}), React.createElement('circle',{cx:9,cy:7,r:4}), React.createElement('path',{d:'M22 21v-2a4 4 0 0 0-3-3.87'}), React.createElement('path',{d:'M16 3.13a4 4 0 0 1 0 7.75'})) },
+        { num: '2,400', unit: '回+', label: '延べ指導回数', icon: React.createElement('svg', {width:30,height:30,viewBox:'0 0 24 24',fill:'none',stroke:'#FF8A5A',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'}, React.createElement('circle',{cx:12,cy:12,r:9}), React.createElement('path',{d:'M12 7v5l3 3'})) },
+        { num: '60', unit: '名', label: '1日のイベント最大集客', icon: React.createElement('svg', {width:30,height:30,viewBox:'0 0 24 24',fill:'none',stroke:'#FF8A5A',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'}, React.createElement('path',{d:'M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2'}), React.createElement('circle',{cx:10,cy:7,r:4}), React.createElement('path',{d:'M20.5 21v-2a4 4 0 0 0-3-3.87'}), React.createElement('path',{d:'M15 3.13a4 4 0 0 1 0 7.75'})) },
       ],
 
 
@@ -607,10 +667,7 @@ class Component extends DCLogic {
 
       gallery: [
         { bg: 'url(assets/community-1-web.jpg) center 30%/cover no-repeat, #cdb999', col: 'span 2', row: 'span 2' },
-        { bg: 'url(assets/community-2-web.jpg) center/cover no-repeat, #9aa98f', col: 'span 1', row: 'span 1' },
-        { bg: 'url(assets/community-3-web.jpg) center/cover no-repeat, #c2a987', col: 'span 1', row: 'span 1' },
-        { bg: 'url(assets/community-4-web.jpg) center/cover no-repeat, #aaa091', col: 'span 1', row: 'span 1' },
-        { bg: 'url(assets/community-5-web.jpg) center/cover no-repeat, #94a585', col: 'span 1', row: 'span 1' },
+        { bg: 'url(assets/community-group-1-web.jpg) center/cover no-repeat, #9aa98f', col: 'span 2', row: 'span 2' },
       ],
 
       voices: [

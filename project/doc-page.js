@@ -38,7 +38,22 @@
  *           export, always set it explicitly. landscape swaps the named
  *           size's dimensions (letter landscape prints 11in × 8.5in).
  *   width / height — explicit CSS lengths, override `size` and
- *           `orientation`
+ *           `orientation`: the page IS the design's size (a poster
+ *           printed at its true dimensions). With both set, the component
+ *           also declares the page box as the preview size (a
+ *           `meta[name="omelette-fixed-size"]` it injects at runtime,
+ *           never overriding one you author), so the in-app preview
+ *           scales the whole sheet into view.
+ *   content-width / content-height — the design's own fixed dimensions
+ *           (CSS lengths), for scaling a fixed-size design ONTO the named
+ *           paper: content lays out at exactly this size, and the
+ *           component scales it to fit the printable area (centered
+ *           horizontally, top-aligned), so e.g. a 960px-wide poster lands
+ *           on one Letter page. Both must be set; they do not change the
+ *           page box — `size`/`orientation` (or `width`/`height`)
+ *           still name the paper. For pages WITHOUT running
+ *           header/footer slots — the fit box fills the printable area
+ *           and does not subtract slot heights.
  *   margin  — printable inset on every page (default 0.75in); margin="0"
  *           makes pages full-bleed (content then owns its own insets)
  *
@@ -89,6 +104,13 @@
     v = (v || '').trim();
     return v === '0' ? '0px' : CSS_LENGTH.test(v) ? v : fb;
   };
+  // CSS length → px number (CSS absolute units are exact: 1in = 96px).
+  // Returns NaN for anything safeLen would reject — callers gate on it.
+  const PX_PER = { px: 1, in: 96, mm: 96 / 25.4, cm: 96 / 2.54, pt: 96 / 72, pc: 16 };
+  const toPx = (v) => {
+    const m = /^(\d+(?:\.\d+)?)(px|in|mm|cm|pt|pc)$/.exec((v || '').trim());
+    return m ? parseFloat(m[1]) * PX_PER[m[2]] : NaN;
+  };
 
   const stylesheet = `
     :host {
@@ -122,6 +144,23 @@
       padding: var(--doc-page-margin);
     }
     .frame { width: 100%; border-collapse: collapse; }
+    /* Scaled-fit mode (content-width/content-height): the inner .fit box
+     * lays the content out at its authored fixed size and scales it onto
+     * the printable area; .fit-box reserves the scaled footprint in flow
+     * (transforms don't affect layout) and centers it. Without the mode,
+     * both divs are unstyled block pass-throughs. */
+    .fit-mode .fit-box {
+      width: calc(var(--doc-fit-w) * var(--doc-fit-scale));
+      height: calc(var(--doc-fit-h) * var(--doc-fit-scale));
+      margin: 0 auto;
+      break-inside: avoid;
+    }
+    .fit-mode .fit {
+      width: var(--doc-fit-w);
+      height: var(--doc-fit-h);
+      transform: scale(var(--doc-fit-scale));
+      transform-origin: top left;
+    }
     .frame td, .frame th { padding: 0; text-align: left; font-weight: inherit; }
     .hdr-space { height: var(--doc-hdr-h); }
     .ftr-space { height: var(--doc-ftr-h); }
@@ -154,7 +193,9 @@
   `;
 
   class DocPage extends HTMLElement {
-    static get observedAttributes() { return ['size', 'width', 'height', 'margin', 'orientation']; }
+    static get observedAttributes() {
+      return ['size', 'width', 'height', 'margin', 'orientation', 'content-width', 'content-height'];
+    }
 
     constructor() {
       super();
@@ -181,12 +222,24 @@
     }
     get pageMargin() { return safeLen(this.getAttribute('margin'), '0.75in'); }
 
+    /** Scaled-fit mode's content box [w, h] as CSS lengths, or null when
+     *  the mode is off (either attribute missing/invalid/zero — a partial
+     *  declaration falls back to normal flow rather than guessing). */
+    _contentFit() {
+      const w = safeLen(this.getAttribute('content-width'), null);
+      const h = safeLen(this.getAttribute('content-height'), null);
+      if (!w || !h) return null;
+      const wPx = toPx(w), hPx = toPx(h);
+      return wPx > 0 && hPx > 0 ? [w, h, wPx, hPx] : null;
+    }
+
     connectedCallback() {
       if (!this._sheet) this._render();
       this._syncSize();
       this._syncPrintPageRule();
       this._ensureTextWrapDefaults();
       this._ensureOwnsPrintMeta();
+      this._syncFixedSizeMeta();
       if (this._mo) this._mo.observe(this, {
         subtree: true, childList: true, characterData: true, attributes: true,
       });
@@ -205,11 +258,16 @@
       // Drop the head rules when the last doc-page leaves, so a deleted
       // document's @page geometry and text-wrap defaults can't apply to
       // whatever replaces it.
-      if (!document.querySelector('doc-page')) {
-        ['doc-page-print', 'doc-page-text-wrap', 'doc-page-owns-print'].forEach((id) => {
+      const survivor = document.querySelector('doc-page');
+      if (!survivor) {
+        ['doc-page-print', 'doc-page-text-wrap', 'doc-page-owns-print', 'doc-page-fixed-size'].forEach((id) => {
           const tag = document.getElementById(id);
           if (tag) tag.remove();
         });
+      } else if (typeof survivor._syncFixedSizeMeta === 'function') {
+        // A departed true-size owner hands the page-global preview meta
+        // to whatever true-size page remains (or it's removed).
+        survivor._syncFixedSizeMeta();
       }
     }
 
@@ -217,6 +275,7 @@
       if (!this._sheet) return;
       this._syncSize();
       this._syncPrintPageRule();
+      this._syncFixedSizeMeta();
       this._scheduleMeasure();
     }
 
@@ -227,7 +286,7 @@
         <div class="sheet" data-screen-label="Document">
           <table class="frame" role="presentation">
             <thead><tr><th><div class="hdr-space"><slot name="header"></slot></div></th></tr></thead>
-            <tbody><tr><td class="body"><slot></slot></td></tr></tbody>
+            <tbody><tr><td class="body"><div class="fit-box"><div class="fit"><slot></slot></div></div></td></tr></tbody>
             <tfoot><tr><td><div class="ftr-space"><slot name="footer"></slot></div></td></tr></tfoot>
           </table>
         </div>`;
@@ -238,7 +297,29 @@
     /** Runtime sizing lives in a shadow <style> :host rule, never on the
      *  light-DOM host element, so serialize-persist can't write it back. */
     _syncSize(hdrH, ftrH) {
+      // Scaled-fit mode: content at its authored size, scaled onto the
+      // printable area (page minus margins on both axes). The factor is a
+      // plain number var so calc(length * number) stays valid; 4 decimals
+      // keeps the shadow style stable across re-measures. Upscaling is
+      // allowed — print transforms are vector, so text and CSS stay crisp
+      // (raster images soften, which the catalog bullet warns about).
+      const fit = this._contentFit();
+      let fitVars = '';
+      if (fit) {
+        const marginPx = toPx(this.pageMargin) || 0;
+        const availW = toPx(this.pageWidth) - 2 * marginPx;
+        const availH = toPx(this.pageHeight) - 2 * marginPx;
+        const scale = Math.min(availW / fit[2], availH / fit[3]);
+        if (scale > 0 && Number.isFinite(scale)) {
+          fitVars =
+            '--doc-fit-w:' + fit[0] + ';' +
+            '--doc-fit-h:' + fit[1] + ';' +
+            '--doc-fit-scale:' + scale.toFixed(4) + ';';
+        }
+      }
+      this._sheet.classList.toggle('fit-mode', !!fitVars);
       this._vars.textContent = ':host{' +
+        fitVars +
         '--doc-page-w:' + this.pageWidth + ';' +
         '--doc-page-h:' + this.pageHeight + ';' +
         '--doc-page-margin:' + this.pageMargin + ';' +
@@ -303,6 +384,54 @@
       tag.content = 'true';
       tag.setAttribute('data-omelette-injected', '');
       document.head.appendChild(tag);
+    }
+
+    /** This page's valid true-size page box (explicit width AND height)
+     *  as [w, h] px ints, or null when the mode is off. */
+    _trueSizePx() {
+      if (
+        !safeLen(this.getAttribute('width'), null) ||
+        !safeLen(this.getAttribute('height'), null)
+      ) return null;
+      const w = Math.round(toPx(this.pageWidth));
+      const h = Math.round(toPx(this.pageHeight));
+      return w > 0 && h > 0 ? [w, h] : null;
+    }
+
+    /** True-size pages (explicit width AND height) also declare the page
+     *  box as the preview size: the in-app preview reads
+     *  meta[name="omelette-fixed-size"] (content "W,H" in px ints) and
+     *  scales the sheet into view — without it an 18in poster previews at
+     *  true size with scrollbars. Never overrides an author-set meta
+     *  (only the component's own id is managed). The meta is page-global
+     *  while doc-page instances are not, so every sync recomputes the
+     *  page-wide owner — the first connected true-size doc-page — and a
+     *  non-true-size sibling's sync can never delete the owner's meta.
+     *  Removed when no true-size page remains (the owner's disconnect
+     *  re-syncs via any survivor) or when an author-set meta exists. */
+    _syncFixedSizeMeta() {
+      const id = 'doc-page-fixed-size';
+      const own = document.getElementById(id);
+      const authored = document.querySelector(
+        'meta[name="omelette-fixed-size"]:not([data-omelette-injected])'
+      );
+      // The page-wide owner, not this instance: an upgraded true-size page
+      // anywhere in the document keeps the meta alive and sized.
+      let box = null;
+      for (const el of document.querySelectorAll('doc-page')) {
+        box = typeof el._trueSizePx === 'function' ? el._trueSizePx() : null;
+        if (box) break;
+      }
+      if (!box || authored) {
+        if (own) own.remove();
+        return;
+      }
+      const tag = own || document.createElement('meta');
+      tag.id = id;
+      tag.name = 'omelette-fixed-size';
+      tag.content = box[0] + ',' + box[1];
+      tag.setAttribute('data-omelette-injected', '');
+      if (!own) document.head.appendChild(tag);
     }
 
     _scheduleMeasure() {
