@@ -625,12 +625,12 @@ a:hover{color:#B8541F;}
           <div style="display:flex;gap:10px;">
             <div style="flex:1;background:#E4753A;border-radius:10px;padding:{{ p.cellPad }};text-align:center;">
               <div style="font-size:12px;color:#fff;opacity:.9;margin-bottom:4px;">パーソナル</div>
-              <div style="font-family:'Jost';font-size:{{ p.priceSize }};font-weight:700;color:#fff;">{{ p.personal }}</div>
+              <div style="font-family:'Jost';font-size:{{ p.priceSize }};font-weight:700;color:#fff;white-space:nowrap;">{{ p.personal }}</div>
               <div style="font-size:11.5px;color:rgba(255,255,255,.9);margin-top:4px;">月額 {{ p.personalMonthly }}</div>
             </div>
             <div style="flex:1;background:#7A8D7D;border-radius:10px;padding:{{ p.cellPad }};text-align:center;">
               <div style="font-size:12px;color:#fff;opacity:.9;margin-bottom:4px;">セミパーソナル</div>
-              <div style="font-family:'Jost';font-size:{{ p.priceSize }};font-weight:700;color:#fff;">{{ p.semi }}</div>
+              <div style="font-family:'Jost';font-size:{{ p.priceSize }};font-weight:700;color:#fff;white-space:nowrap;">{{ p.semi }}</div>
               <div style="font-size:11.5px;color:rgba(255,255,255,.9);margin-top:4px;">月額 {{ p.semiMonthly }}</div>
             </div>
           </div>
@@ -675,7 +675,7 @@ a:hover{color:#B8541F;}
     <div style="background:#FFF4EC;border-radius:22px;padding:26px 20px;margin-bottom:24px;">
       <div style="text-align:center;margin-bottom:20px;">
         <div style="display:inline-block;font-size:12.5px;font-weight:700;color:#fff;background:#B8541F;padding:5px 13px;border-radius:999px;margin-bottom:12px;letter-spacing:.03em;">事例② 60代女性の場合</div>
-        <h3 style="font-size:22px;font-weight:700;letter-spacing:.02em;margin:0 0 10px;line-height:1.5;">『ジムに通ってもダメだったお腹が、たった1ヶ月で、おへその上下－6cmに。』</h3>
+        <h3 style="font-size:22px;font-weight:700;letter-spacing:.02em;margin:0 0 10px;line-height:1.5;">「ジムに通ってもダメだったお腹が、たった1ヶ月で、おへその上下－6cmに。」</h3>
       </div>
       <div style="display:flex;gap:10px;">
         <div style="position:relative;flex:1;border-radius:14px;overflow:hidden;aspect-ratio:468/655;background:url(assets/ba-before-senior-web.jpg) center/cover no-repeat, #ECEAE4;">
@@ -712,8 +712,8 @@ a:hover{color:#B8541F;}
   <section id="ls-reserve-sp" data-screen-label="CTA" style="position:relative;padding:64px 22px;overflow:hidden;background:linear-gradient(135deg,#E4753A,#C25F28);">
     <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(125deg,rgba(255,255,255,.07) 0 2px,transparent 2px 26px);"></div>
     <div style="position:relative;text-align:center;">
-      <div style="font-family:'Zen Maru Gothic',sans-serif;font-size:19px;color:#fff;font-weight:500;margin-bottom:14px;">「ここに来ると、自然と笑顔になれる。」</div>
-      <h2 style="font-size:28px;font-weight:500;color:#fff;margin:0 0 16px;line-height:1.45;">まずは、体験レッスンから。</h2>
+      <div style="font-family:'Zen Maru Gothic',sans-serif;font-size:19px;color:#fff;font-weight:500;margin-bottom:14px;white-space:nowrap;">「ここに来ると、自然と笑顔になれる。」</div>
+      <h2 style="font-size:28px;font-weight:500;color:#fff;margin:0 0 16px;line-height:1.45;white-space:nowrap;">まずは、体験レッスンから。</h2>
       <p style="font-size:16px;color:rgba(255,255,255,.95);line-height:2;margin:0 0 30px;">ご予約は<strong style="font-weight:500;">予約フォーム</strong>または<strong style="font-weight:500;">公式LINE</strong>から。完全予約制のため、お早めに。</p>
       <div style="display:flex;flex-direction:column;gap:12px;">
         <a onClick="{{ toReserve }}" style="font-size:17px;font-weight:500;color:#3D372C;background:#fff;padding:15px;border-radius:999px;text-decoration:none;">体験レッスンを予約する</a>
@@ -725,7 +725,7 @@ a:hover{color:#B8541F;}
   <section data-screen-label="実績数字" style="background:#fff;padding:64px 20px;">
     <div style="text-align:center;">
       <div style="font-family:'Jost';font-size:12.5px;letter-spacing:.24em;color:#E4753A;margin-bottom:14px;">TRACK RECORD</div>
-      <h2 style="font-weight:500;margin:0 0 40px;line-height:1.6;font-size:24px;">あざみ野で積み重ねてきた信頼。</h2>
+      <h2 style="font-weight:500;margin:0 0 40px;line-height:1.6;font-size:24px;white-space:nowrap;">あざみ野で積み重ねてきた信頼。</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;">
       <div style="display:flex;flex-direction:column;align-items:center;text-align:center;background:#FFF4EC;border-radius:22px;padding:24px;">
@@ -788,7 +788,7 @@ a:hover{color:#B8541F;}
   <section data-screen-label="地域コミュニティ" style="background:#fff;padding:64px 20px;">
     <div style="text-align:center;margin-bottom:36px;">
       <div style="font-family:'Jost';font-size:12.5px;letter-spacing:.24em;color:#B8541F;margin-bottom:14px;">COMMUNITY &amp; SMILES</div>
-      <h2 style="font-size:23px;font-weight:500;margin:0 0 10px;">地域の皆様と重ねてきた、たくさんの笑顔。</h2>
+      <h2 style="font-size:23px;font-weight:500;margin:0 0 10px;white-space:nowrap;">地域の皆様と重ねてきた、たくさんの笑顔。</h2>
       <p style="font-size:15px;color:#5b6440;margin:0;">2回連続で20名以上が集う回も。地域に根ざした、確かなつながり。</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:75px;gap:12px;">
@@ -799,7 +799,7 @@ a:hover{color:#B8541F;}
       <div style="border-radius:16px;overflow:hidden;background:url(assets/group-lesson-4-web.jpg) center/cover no-repeat, #9aa98f;grid-column:span 1;grid-row:span 1;"></div>
     </div>
     <div style="text-align:center;margin-top:18px;">
-      <a onClick="{{ toLine }}" style="display:inline-block;font-size:15px;font-weight:500;color:#fff;background:#E4753A;padding:11px 22px;border-radius:999px;text-decoration:none;">グループレッスンの詳細はLINEで</a>
+      <a onClick="{{ toLine }}" style="display:inline-block;font-size:15px;font-weight:500;color:#fff;background:#E4753A;padding:11px 22px;border-radius:999px;text-decoration:none;">グループレッスンの詳細は公式LINEで</a>
     </div>
   </section>
 
