@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160" viewBox="0 0 600 160">
+
+<g transform="translate(20,45)">
+  <path d="M42 66 C42 48 16 48 16 30 C16 18 34 18 42 32" fill="none" stroke="#E4753A" stroke-width="7" stroke-linecap="round"></path>
+  <path d="M42 66 C42 48 68 48 68 30 C68 18 50 18 42 32" fill="none" stroke="#7A8D7D" stroke-width="7" stroke-linecap="round"></path>
+  <circle cx="24" cy="40" r="8" fill="#E4753A"></circle>
+  <circle cx="60" cy="40" r="8" fill="#7A8D7D"></circle>
+</g>
+<text x="110" y="100" class="wordmark">Link &amp; Smile</text>
+</svg>
