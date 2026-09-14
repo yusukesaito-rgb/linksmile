@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link &amp; Smile｜あざみ野・パーソナルトレーニング</title>
+<meta name="description" content="腰痛・肩こりに悩む方のための骨盤調整専門パーソナルトレーニングスタジオ、Link &amp; Smile あざみ野。">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Link &amp; Smile｜あざみ野・パーソナルトレーニング">
+<meta property="og:description" content="腰痛・肩こりに悩む方のための骨盤調整専門パーソナルトレーニングスタジオ、Link &amp; Smile あざみ野。">
+<meta property="og:image" content="https://linkandsmile.com/assets/ogp-image.png">
+<meta property="og:url" content="https://linkandsmile.com/">
+<meta name="twitter:card" content="summary_large_image">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -14,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Zen+Maru+Gothic:wght@400;500&amp;family=Noto+Serif+JP:wght@600&amp;display=swap" rel="stylesheet">
+<script async="" src="https://www.instagram.com/embed.js"></script>
 <style>
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -21,6 +31,7 @@ html,body{margin:0;padding:0;}
 input,select,textarea{font-family:inherit;}
 a{color:#C25F28;}
 a:hover{color:#B8541F;}
+.instagram-media{min-width:auto!important;}
 .ls-desktop-view{display:block;}
 .ls-mobile-view{display:none;}
 @media (max-width:480px){
@@ -55,6 +66,22 @@ a:hover{color:#B8541F;}
   <!-- ============ HERO (VIDEO) ============ -->
   <section data-screen-label="Hero" style="position:relative;width:100%;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:url(assets/azamino-hero-white-left.jpg) center/cover no-repeat, linear-gradient(140deg,#3D372C,#2B2820);"></section>
 
+  <!-- ============ NEWS ============ -->
+  <section data-screen-label="お知らせ" style="background:#FFF4EC;padding:36px 32px 22px;">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Jost';font-size:14px;letter-spacing:.28em;color:#C25F28;margin-bottom:20px;text-align:center;">新着情報</div>
+      <div style="display:flex;flex-direction:column;gap:2px;text-align:left;">
+        <sc-for list="{{ news }}" as="n" hint-placeholder-count="1">
+          <a href="{{ n.link }}" target="_blank" rel="noopener" style="display:flex;align-items:baseline;gap:16px;text-decoration:none;border-bottom:1px solid #FFDEC7;padding:10px 0;">
+            <span style="font-family:'Jost';font-size:14px;color:#9a9082;flex-shrink:0;">{{ n.date }}</span>
+            <span style="font-size:12.5px;font-weight:500;color:#fff;background:{{ n.catColor }};padding:3px 12px;border-radius:999px;flex-shrink:0;letter-spacing:.02em;">{{ n.category }}</span>
+            <span style="font-size:15.5px;color:#3D372C;">{{ n.title }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ HERO COPY ============ -->
   <section data-screen-label="ヒーローコピー" style="background:#FFF4EC;padding:76px 6vw 100px;">
     <div style="max-width:820px;margin:0 auto;text-align:center;">
@@ -64,6 +91,12 @@ a:hover{color:#B8541F;}
         <span style="width:36px;height:1px;background:#D8CDB8;"></span>
       </div>
       <h1 style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:50px;line-height:1.6;font-weight:600;color:#3D372C;margin:0;letter-spacing:.03em;"><span style="white-space: nowrap; display: block; font-size: 45px">あざみ野で選ばれる3つの理由</span></h1>
+
+      <div style="max-width:252px;margin:44px auto 0;">
+        <div style="position:relative;width:100%;padding-top:177.78%;border-radius:18px;overflow:hidden;box-shadow:0 24px 50px -24px rgba(0,0,0,.4);">
+          <iframe src="https://www.youtube.com/embed/EgBlOObP-lc" title="Link & Smile 紹介動画" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen=""></iframe>
+        </div>
+      </div>
 
       <div style="display:flex;justify-content:center;align-items:flex-start;gap:20px;max-width:1040px;margin:56px auto 0;flex-wrap:nowrap;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:20px;width:300px;flex-shrink:0;">
@@ -243,8 +276,12 @@ a:hover{color:#B8541F;}
         <a onClick="{{ toLine }}" style="font-size:16px;font-weight:500;color:#fff;background:#E4753A;padding:11px 22px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;">詳しくは公式LINEで見る</a>
       </div>
 
-      <div style="margin-top:30px;text-align:center;">
+      <div style="margin-top:30px;text-align:left;">
         <span style="font-size:17px;color:#544c41;letter-spacing:.02em;">※ 表示価格はすべて消費税込みの総額表示です。レッスン時間は1回60分（体験レッスンも同様）。男性のお客様もご利用いただけます。</span>
+      </div>
+      <div style="margin-top:20px;text-align:left;font-size:15.5px;color:#544c41;line-height:1.9;">
+        <div>【持ち物】運動できる服装・タオル・水分</div>
+        <div>【設備】シャワールーム完備（レッスン後の身支度も快適にご利用いただけます）</div>
       </div>
     </div>
   </section>
@@ -256,11 +293,16 @@ a:hover{color:#B8541F;}
         <div>
           <div style="font-family:'Jost';font-size:15.5px;letter-spacing:.3em;color:#C25F28;margin-bottom:18px;">CUSTOMER VOICES</div>
           <h2 style="font-size: 38px; font-weight: 500; letter-spacing: .04em; margin: 0 0 14px; line-height: 1.4">通ってくださる方の、声。</h2>
-          <p style="font-size: 20px; color: #6E665A; margin: 0; max-width: 420px">トライアル（2ヶ月）を終えた方の声をご紹介します。</p>
+          <p style="font-size: 20px; color: #6E665A; margin: 0; max-width: 420px">パーソナルトレーニングを始めたきっかけと、実際の変化をリアルな声でお届けします。</p>
         </div>
-        <div style="position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:url(assets/lesson-scene-real-web.jpg) center/cover no-repeat, linear-gradient(140deg,#cdbf9c,#aab488);filter:brightness(1.25);box-shadow:0 26px 54px -26px rgba(61,55,44,.4);">
-          
+        <div style="max-width:260px;margin:0 auto;border-radius:22px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 26px 54px -26px rgba(61,55,44,.4);">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HERSjwo7JRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="display:block;border:0;"></iframe>
         </div>
+      </div>
+      <div style="text-align:center;margin-bottom:32px;">
+        <h3 style="font-size:26px;font-weight:500;letter-spacing:.03em;margin:0 0 8px;">Instagramでも、ご紹介しています。</h3>
+        <p style="font-size:16px;color:#6E665A;margin:0 0 20px;">レッスンの様子や参加者の声を動画で発信中。</p>
+        <a href="https://www.instagram.com/ryunosukeinou/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;font-size:16.5px;font-weight:500;color:#fff;background:linear-gradient(135deg,#E4753A,#C25F28);padding:15px 34px;border-radius:999px;text-decoration:none;transition:transform .2s ease;" style-hover="transform:translateY(-2px);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><path d="M17.5 6.5h.01"></path></svg>もっと見る（Instagram）</a>
       </div>
       <div style="background:#FFF4EC;border-radius:28px;padding:44px;margin-bottom:32px;">
         <div style="text-align:center;margin-bottom:36px;">
@@ -299,6 +341,7 @@ a:hover{color:#B8541F;}
           </div>
         </sc-for>
       </div>
+
     </div>
   </section>
 
@@ -460,6 +503,7 @@ a:hover{color:#B8541F;}
         <div style="display:flex;flex-direction:column;gap:11px;">
           <a onClick="{{ toReserve }}" style="font-size:17px;color:#cfc7ba;cursor:pointer;text-decoration:none;transition:color .2s ease;" style-hover="color:#fff;">WEB予約フォーム</a>
           <a onClick="{{ toLine }}" style="font-size:17px;color:#cfc7ba;cursor:pointer;text-decoration:none;transition:color .2s ease;" style-hover="color:#fff;">公式LINE</a>
+          <a href="mailto:linkandsmile@gmail.com" style="display:flex;align-items:center;gap:8px;font-size:17px;color:#cfc7ba;cursor:pointer;text-decoration:none;transition:color .2s ease;" style-hover="color:#fff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>linkandsmile@gmail.com</a>
           <a href="https://www.instagram.com/ryunosukeinou/" target="_blank" rel="noopener" style="font-size:17px;color:#cfc7ba;cursor:pointer;text-decoration:none;transition:color .2s ease;" style-hover="color:#fff;">Instagram</a>
         </div>
       </div>
@@ -504,6 +548,28 @@ a:hover{color:#B8541F;}
   </sc-if>
 
   <section data-screen-label="Hero" style="position:relative;width:100%;height:78vh;min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:url(assets/azamino-hero-white-left-mobile.jpg) center/cover no-repeat, linear-gradient(140deg,#3D372C,#2B2820);"></section>
+
+  <!-- ============ NEWS ============ -->
+  <section data-screen-label="お知らせ" style="background:#FFF4EC;padding:28px 18px 8px;">
+    <div style="text-align:center;margin-bottom:14px;">
+      <div style="font-family:'Jost';font-size:12px;letter-spacing:.24em;color:#C25F28;text-align:center;">新着情報</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;">
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="1">
+        <a href="{{ n.link }}" target="_blank" rel="noopener" style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;text-decoration:none;border-bottom:1px solid #FFDEC7;padding:10px 0;text-align:left;">
+          <span style="font-family:'Jost';font-size:11.5px;color:#9a9082;flex-shrink:0;">{{ n.date }}</span>
+          <span style="font-size:10.5px;font-weight:500;color:#fff;background:{{ n.catColor }};padding:2px 9px;border-radius:999px;flex-shrink:0;">{{ n.category }}</span>
+          <span style="font-size:13px;color:#3D372C;">{{ n.title }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="紹介動画" style="background:#2B2820;padding:44px 22px;">
+    <div style="position:relative;width:100%;padding-top:177.78%;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -20px rgba(0,0,0,.5);">
+      <iframe src="https://www.youtube.com/embed/EgBlOObP-lc" title="Link & Smile 紹介動画" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen=""></iframe>
+    </div>
+  </section>
 
   <section data-screen-label="ヒーローコピー" style="background:#FFF4EC;padding:48px 22px 56px;">
     <div style="text-align:center;">
@@ -631,14 +697,26 @@ a:hover{color:#B8541F;}
       <div><div style="font-size:16px;font-weight:600;color:#3D372C;">グループレッスン</div><div style="font-size:14px;color:#6E665A;margin-top:2px;">ママ・シニア向けの教室。料金・開催日は公式LINEでご案内。</div></div>
       <a onClick="{{ toLine }}" style="font-size:15px;font-weight:500;color:#fff;background:#E4753A;padding:11px;border-radius:999px;text-decoration:none;text-align:center;">詳しくは公式LINEで見る</a>
     </div>
-    <p style="font-size:13px;color:#544c41;margin:22px 0 0;text-align:center;">※ 表示価格はすべて消費税込みの総額表示です。レッスン時間は1回60分。男性のお客様もご利用いただけます。</p>
+    <p style="font-size:13px;color:#544c41;margin:22px 0 0;text-align:left;">※ 表示価格はすべて消費税込みの総額表示です。レッスン時間は1回60分。男性のお客様もご利用いただけます。</p>
+    <div style="margin-top:16px;text-align:left;font-size:13px;color:#544c41;line-height:1.8;">
+      <div>【持ち物】運動できる服装・タオル・水分</div>
+      <div>【設備】シャワールーム完備（レッスン後の身支度も快適にご利用いただけます）</div>
+    </div>
   </section>
 
   <section id="ls-voices-sp" data-screen-label="お客様の声" style="background:#ffffff;padding:64px 20px;">
     <div style="text-align:center;margin-bottom:32px;">
       <div style="font-family:'Jost';font-size:12.5px;letter-spacing:.24em;color:#C25F28;margin-bottom:14px;">CUSTOMER VOICES</div>
       <h2 style="font-size:24px;font-weight:500;letter-spacing:.03em;margin:0 0 12px;">通ってくださる方の、声。</h2>
-      <p style="font-size:16px;color:#6E665A;margin:0;">トライアル（2ヶ月）を終えた方の声を、実際のレッスン風景とあわせてご紹介します。</p>
+      <p style="font-size:16px;color:#6E665A;margin:0;">パーソナルトレーニングを始めたきっかけと、実際の変化をリアルな声でお届けします。</p>
+    </div>
+    <div style="max-width:220px;margin:0 auto 32px;border-radius:18px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 20px 40px -22px rgba(61,55,44,.4);">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HERSjwo7JRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="display:block;border:0;"></iframe>
+    </div>
+    <div style="text-align:center;margin-bottom:32px;">
+      <h3 style="font-size:20px;font-weight:500;letter-spacing:.02em;margin:0 0 8px;">Instagramでも、ご紹介しています。</h3>
+      <p style="font-size:14px;color:#6E665A;margin:0 0 16px;">レッスンの様子や参加者の声を動画で発信中。</p>
+      <a href="https://www.instagram.com/ryunosukeinou/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#fff;background:linear-gradient(135deg,#E4753A,#C25F28);padding:13px 28px;border-radius:999px;text-decoration:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><path d="M17.5 6.5h.01"></path></svg>もっと見る（Instagram）</a>
     </div>
     <div style="background:#FFF4EC;border-radius:22px;padding:26px 20px;margin-bottom:36px;">
       <div style="text-align:center;margin-bottom:22px;">
@@ -674,6 +752,7 @@ a:hover{color:#B8541F;}
         </div>
       </sc-for>
     </div>
+
   </section>
 
   <section id="ls-reserve-sp" data-screen-label="CTA" style="position:relative;padding:64px 22px;overflow:hidden;background:linear-gradient(135deg,#E4753A,#C25F28);">
@@ -797,6 +876,7 @@ a:hover{color:#B8541F;}
         <div style="display:flex;flex-direction:column;gap:9px;">
           <a onClick="{{ toReserve }}" style="font-size:14.5px;color:#cfc7ba;text-decoration:none;">WEB予約フォーム</a>
           <a onClick="{{ toLine }}" style="font-size:14.5px;color:#cfc7ba;text-decoration:none;">公式LINE</a>
+          <a href="mailto:linkandsmile@gmail.com" style="display:flex;align-items:center;gap:6px;font-size:14.5px;color:#cfc7ba;text-decoration:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>linkandsmile@gmail.com</a>
           <a href="https://www.instagram.com/ryunosukeinou/" target="_blank" rel="noopener" style="font-size:14.5px;color:#cfc7ba;text-decoration:none;">Instagram</a>
         </div>
       </div>
@@ -827,9 +907,64 @@ class Component extends DCLogic {
     scrolled: false,
     menuOpen: false,
     winW: (typeof window !== 'undefined' ? window.innerWidth : 1440),
+    news: [
+      { date: '2026.09.27', category: 'イベント', catColor: '#C25F28', title: '【9月27日(日)】親子で楽しめる晴れいろマルシェ開催！', body: '詳しくはInstagramをご覧ください。', link: 'https://www.instagram.com/p/Da4AvoJE5pf/?stkn=MWFuYXFvOW9jbXRtYg==', open: false },
+      { date: '2026.09.01', category: 'グループレッスン', catColor: '#7A8D7D', title: '9月グループレッスン情報', body: '詳しくはInstagramをご覧ください。', link: 'https://www.instagram.com/p/Da4AvoJE5pf/?stkn=MWFuYXFvOW9jbXRtYg==', open: false },
+      { date: '2026.08.20', category: '出演情報', catColor: '#8C7A5A', title: '【開催報告】みどりフェスにゲスト出演しました！', body: '詳しくはInstagramをご覧ください。', link: 'https://www.instagram.com/reel/DclmaxByIdN/?stkn=MXBrZ3ZpYmtqcXVqNw==', open: false },
+      { date: '2026.08.01', category: 'グループレッスン', catColor: '#7A8D7D', title: '8月グループレッスン情報', body: '詳しくはInstagramをご覧ください。', link: 'https://www.instagram.com/p/DaorDsdzjyS/?stkn=MWRpYW5mdThidXlkaA==', open: false },
+    ],
   };
 
+  toggleNews(i) {
+    this.setState(s => ({ news: s.news.map((n, idx) => idx === i ? { ...n, open: !n.open } : n) }));
+  }
+
+  // ── microCMS連携設定 ──
+  // 1. microcms.com でサービスを作成
+  // 2. コンテンツ（リスト形式）を作成し、API名を "news" に設定
+  //    フィールド: title(テキスト), category(テキスト), date(日付), link(テキスト/URL)
+  // 3. 下の2つに「サービスドメイン」と「APIキー（GET用）」を入力
+  static MICROCMS_SERVICE_DOMAIN = 'linkandsmile';
+  static MICROCMS_API_KEY = 'uN7ySbQIxMabJI4uWA77UUOXq5FG7TtGrXRI';
+  static MICROCMS_ENDPOINT = 'news';
+
+  fetchMicroCmsNews() {
+    const domain = Component.MICROCMS_SERVICE_DOMAIN;
+    const key = Component.MICROCMS_API_KEY;
+    if (!domain || !key || typeof window === 'undefined') return;
+    const catColors = { 'グループレッスン': '#7A8D7D', 'イベント': '#C25F28', '出演情報': '#8C7A5A', 'お知らせ': '#7A8D7D' };
+    fetch(`https://${domain}.microcms.io/api/v1/${Component.MICROCMS_ENDPOINT}?limit=20&orders=-date`, {
+      headers: { 'X-MICROCMS-API-KEY': key }
+    })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        if (!data || !Array.isArray(data.contents)) return;
+        const news = data.contents.map(c => ({
+          date: (c.date || '').slice(0, 10).replace(/-/g, '.'),
+          category: c.category || 'お知らせ',
+          catColor: catColors[c.category] || '#7A8D7D',
+          title: c.title || '',
+          link: c.link || '#',
+        }));
+        if (news.length) this.setState({ news });
+      })
+      .catch(() => {});
+  }
+
   componentDidMount() {
+    this.fetchMicroCmsNews();
+    if (typeof window !== 'undefined') {
+      let tries = 0;
+      this._instaTimer = setInterval(() => {
+        tries++;
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+          clearInterval(this._instaTimer);
+        } else if (tries > 25) {
+          clearInterval(this._instaTimer);
+        }
+      }, 400);
+    }
     this._onScroll = () => {
       const s = window.scrollY > 30;
       if (s !== this.state.scrolled) this.setState({ scrolled: s });
@@ -847,6 +982,7 @@ class Component extends DCLogic {
   componentWillUnmount() {
     window.removeEventListener('scroll', this._onScroll);
     window.removeEventListener('resize', this._onResize);
+    if (this._instaTimer) clearInterval(this._instaTimer);
   }
 
   scrollToId(id) {
@@ -857,10 +993,14 @@ class Component extends DCLogic {
   }
 
   renderVals() {
+    const igEmbedHtml = { __html: '<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dc0pNgWTXv3/?utm_source=ig_web_copy_link" data-instgrm-version="14" style="max-width:340px;width:100%;margin:0;"></blockquote>' };
     const scrolled = this.state.scrolled;
     const go = (id) => () => { this.setState({ menuOpen: false }); this.scrollToId(id); };
+    const news = this.state.news;
 
     return {
+      news,
+      igEmbedHtml,
       headerBg: scrolled ? 'rgba(255,255,255,.92)' : 'rgba(43,40,32,.15)',
       headerShadow: scrolled ? '0 6px 24px -16px rgba(61,55,44,.4)' : 'none',
       headerPad: scrolled ? '14px' : '22px',
