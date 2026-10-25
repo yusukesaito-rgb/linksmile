@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;}
+a{color:#C25F28;}
+a:hover{color:#B8541F;}
+</style>
+</helmet>
+<div style="font-family:'Zen Kaku Gothic New',sans-serif;color:#3D372C;background:#FFF4EC;min-height:100vh;padding:64px 6vw 100px;">
+  <div style="max-width:760px;margin:0 auto;">
+    <a href="Link & Smile LP.dc.html" style="display:inline-block;font-size:13px;color:#9a9082;text-decoration:none;margin-bottom:28px;">← トップページに戻る</a>
+    <div style="font-family:'Jost';font-size:14px;letter-spacing:.28em;color:#C25F28;margin-bottom:12px;">NEWS</div>
+    <h1 style="font-size:28px;font-weight:700;margin:0 0 40px;">お知らせ一覧</h1>
+    <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <sc-for list="{{ news }}" as="n" hint-placeholder-count="6">
+          <a href="{{ n.link }}" target="_blank" rel="noopener" style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;text-decoration:none;border-bottom:1px solid #FFDEC7;padding:14px 0;">
+            <span style="font-family:'Jost';font-size:14px;color:#9a9082;flex-shrink:0;">{{ n.date }}</span>
+            <span style="font-size:12.5px;font-weight:500;color:#fff;background:{{ n.catColor }};padding:3px 12px;border-radius:999px;flex-shrink:0;letter-spacing:.02em;">{{ n.category }}</span>
+            <span style="font-size:15.5px;color:#3D372C;">{{ n.title }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { news: [], loaded: false };
+
+  static MICROCMS_SERVICE_DOMAIN = 'linkandsmile';
+  static MICROCMS_API_KEY = 'uN7ySbQIxMabJI4uWA77UUOXq5FG7TtGrXRI';
+  static MICROCMS_ENDPOINT = 'news';
+
+  componentDidMount() {
+    const domain = Component.MICROCMS_SERVICE_DOMAIN;
+    const key = Component.MICROCMS_API_KEY;
+    if (!domain || !key) { this.setState({ loaded: true }); return; }
+    const catColors = { 'グループレッスン': '#7A8D7D', 'イベント': '#C25F28', '出演情報': '#8C7A5A', 'お知らせ': '#7A8D7D' };
+    fetch(`https://${domain}.microcms.io/api/v1/${Component.MICROCMS_ENDPOINT}?limit=100&orders=-date`, {
+      headers: { 'X-MICROCMS-API-KEY': key }
+    })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        const news = (data && Array.isArray(data.contents) ? data.contents : []).map(c => ({
+          date: (c.date || '').slice(0, 10).replace(/-/g, '.'),
+          category: c.category || 'お知らせ',
+          catColor: catColors[c.category] || '#7A8D7D',
+          title: c.title || '',
+          link: c.link || '#',
+        }));
+        this.setState({ news, loaded: true });
+      })
+      .catch(() => this.setState({ loaded: true }));
+  }
+
+  renderVals() {
+    return { news: this.state.news, loaded: this.state.loaded };
+  }
+}
+</script>
+</body>
+</html>
