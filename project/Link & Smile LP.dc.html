@@ -947,6 +947,8 @@ class Component extends DCLogic {
     const key = Component.MICROCMS_API_KEY;
     if (!domain || !key || typeof window === 'undefined') return;
     const catColors = { 'グループレッスン': '#7A8D7D', 'イベント': '#C25F28', '出演情報': '#8C7A5A', 'お知らせ': '#7A8D7D' };
+    const palette = { 'オレンジ': '#C25F28', 'グリーン': '#7A8D7D', 'ブラウン': '#8C7A5A', 'ピンク': '#C9737A', 'ネイビー': '#3E5470', 'イエロー': '#C9A03C', 'パープル': '#8A6F9E', 'グレー': '#8A8580' };
+    const pickColor = (c) => { let v = c.color; if (Array.isArray(v)) v = v[0]; if (v && palette[v]) return palette[v]; if (typeof v === 'string' && /^#[0-9a-fA-F]{3,8}$/.test(v.trim())) return v.trim(); return catColors[c.category] || '#7A8D7D'; };
     fetch(`https://${domain}.microcms.io/api/v1/${Component.MICROCMS_ENDPOINT}?limit=20&orders=-date`, {
       headers: { 'X-MICROCMS-API-KEY': key }
     })
@@ -956,7 +958,7 @@ class Component extends DCLogic {
         const news = data.contents.map(c => ({
           date: (c.date || '').slice(0, 10).replace(/-/g, '.'),
           category: c.category || 'お知らせ',
-          catColor: catColors[c.category] || '#7A8D7D',
+          catColor: pickColor(c),
           title: c.title || '',
           link: c.link || '#',
         }));
